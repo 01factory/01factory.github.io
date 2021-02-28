@@ -1,0 +1,6 @@
+theme: jekyll-theme-slate
+title: 飞道软件工厂
+description: 插件式开发
+show_downloads: false
+github:
+  is_project_page: false
