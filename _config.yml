@@ -4,3 +4,15 @@ description: 从零到壹，数字之道
 show_downloads: false
 github:
   is_project_page: false
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    number_sections: true
+    code_folding: hide
+    xaringan::moon_reader:
+    nature:
+      highlightLines: true
