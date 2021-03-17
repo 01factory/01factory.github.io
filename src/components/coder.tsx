@@ -19,8 +19,8 @@ import 'prismjs/components/prism-prolog';
 // import 'prismjs/themes/prism-coy.css';
 // import 'prismjs/themes/prism-dark.css';
 // import 'prismjs/themes/prism-okaidia.css';
-// import 'prismjs/themes/prism-tomorrow.css';
-import 'prismjs/themes/prism-funky.css';
+import 'prismjs/themes/prism-tomorrow.css';
+// import 'prismjs/themes/prism-funky.css';
 // import 'prismjs/themes/prism-solarizedlight.css';
 
 // extend,insertBefore,DFS,markup,html,mathml,svg,xml,ssml,atom,rss,css,clike,javascript,js,ruby,rb,haml,sql,typescript,ts,json,webmanifest,bash,shell
@@ -28,6 +28,7 @@ import 'prismjs/themes/prism-funky.css';
 export type lanType = 'yaml' | 'yml' | 'html' | 'js' | 'ts' | 'jsx' | 'bash' | 'shell' | 'prolog';
 
 export default function CodeEditor({ code, lan }: { code: string; lan: lanType; }) {
+	code = code.split('\n').filter(l => !!l).join('\n');
 	const [value, setvalue] = useState(code);
 	const [, toast] = useToasts();
 	return <>
