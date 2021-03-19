@@ -28,7 +28,8 @@ import 'prismjs/themes/prism-tomorrow.css';
 export type lanType = 'yaml' | 'yml' | 'html' | 'js' | 'ts' | 'jsx' | 'bash' | 'shell' | 'prolog';
 
 export default function CodeEditor({ code, lan }: { code: string; lan: lanType; }) {
-	code = code.split('\n').filter(l => !!l).join('\n');
+	// code = code.split('\n').filter(l => !!l).join('\n');
+	code = code.trim();
 	const [value, setvalue] = useState(code);
 	const [, toast] = useToasts();
 	return <>
