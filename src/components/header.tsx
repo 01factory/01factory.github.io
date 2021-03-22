@@ -16,7 +16,7 @@ export default function MyHeader() {
 					<header className="inner">
 						<Link href="/">
 							<a>
-								<Image height={150} width={270} src="/images/logo.png" className="s001" />
+								<Image height='150'width='217' src="/images/logo.png" className="s001" />
 							</a>
 						</Link>
 					</header>
@@ -34,7 +34,7 @@ box-shadow: none;
 	margin: 0 0 0 0;
 }
 .inner{
-	padding-top: 20;
+	padding-top: 10;
 	max-width: 640px;
 	margin: 0 auto;
 }

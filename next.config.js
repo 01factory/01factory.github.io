@@ -2,9 +2,9 @@ const withMDX = require('@next/mdx')({
 	extension: /\.mdx?$/,
 	options: {
 		rehypePlugins: [
-			require("@jsdevtools/rehype-toc"),
+			// require("@jsdevtools/rehype-toc"),
 			require('@mapbox/rehype-prism'),
-			require('rehype-autolink-headings'),
+			// require('rehype-autolink-headings'),
 		],
 	}
 });
