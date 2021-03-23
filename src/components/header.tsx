@@ -6,7 +6,7 @@ import { Col, Row } from '@geist-ui/react';
 export default function MyHeader() {
 	return <>
 		<Header>
-			<title>01factory|数字微工厂</title>
+			<title>01factory|01微工厂</title>
 			<meta name="keywords" content="01factory,dfactory,01" />
 			<meta name="description" content="微工厂,从零到壹，数字之道" />
 		</Header>
@@ -34,7 +34,7 @@ box-shadow: none;
 	margin: 0 0 0 0;
 }
 .inner{
-	padding-top: 10;
+	padding-top: 20;
 	max-width: 640px;
 	margin: 0 auto;
 }
