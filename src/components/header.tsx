@@ -16,7 +16,7 @@ export default function MyHeader() {
 					<header className="inner">
 						<Link href="/">
 							<a>
-								<Image height='150'width='217' src="/images/logo.png" className="s001" />
+								<Image height={150} width={217} src="/images/logo.png" className="s001" />
 							</a>
 						</Link>
 					</header>
