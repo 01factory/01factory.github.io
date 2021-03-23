@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from 'next/head';
-import { Col, Row } from '@geist-ui/react';
+import { Col, Row, Text } from '@geist-ui/react';
 
 export default function MyHeader() {
 	return <>
@@ -9,6 +9,9 @@ export default function MyHeader() {
 			<title>01factory|01微工厂</title>
 			<meta name="keywords" content="01factory,dfactory,01" />
 			<meta name="description" content="微工厂,从零到壹，数字之道" />
+			<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"></link>
+			<link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32x32.ico" ></link>
+			<link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16x16.ico"></link>
 		</Header>
 		<Row>
 			<Col span={24} className='s002'>
@@ -21,6 +24,29 @@ export default function MyHeader() {
 						</Link>
 					</header>
 				</div>
+			</Col>
+		</Row>
+		<Row>
+			<Col span={6}>
+				<Link href='/home_design'>
+					<a>
+						<Text h2 blockquote type="success">方案文档</Text>
+					</a>
+				</Link>
+			</Col>
+			<Col span={6}>
+				<Link href='/'>
+					<a>
+						<Text h2 blockquote type="success">开发文档</Text>
+					</a>
+				</Link>
+			</Col>
+			<Col span={6}>
+				<Link href='/home_ops'>
+					<a>
+						<Text h2 blockquote type="success">运维文档</Text>
+					</a>
+				</Link>
 			</Col>
 		</Row>
 		<style jsx>{`
