@@ -40,6 +40,7 @@
 - [文件服务](./documents/2021/03/151340)
 - [编码服务](./documents/2021/03/151536)
 - [查询mysql的表结构](./documents/2021/03/181214)
+- [查询mysql的表结构](./documents/2021/03/291034)
 
 #### 知识点
 
@@ -52,6 +53,9 @@
 - [SASS](https://www.sass.hk/)
 - [next.js](https://nextjs.org/)
 - [taro](https://taro-docs.jd.com/)
+- [函数](./documents/2021/03/291028)
+- [正则表达式](./documents/2021/03/291030)
+- [DOM](./documents/2021/03/291031)
 
 #### 示例代码
 
