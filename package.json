@@ -5,7 +5,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"release": "np --no-publish"
+		"release": "vercel --prod && np --no-publish"
 	},
 	"publishConfig": {
 		"access": "public",
