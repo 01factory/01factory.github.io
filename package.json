@@ -1,4 +1,6 @@
 {
+	"version": "1.0.0",
+	"name": "01factory",
 	"scripts": {
 		"format": "prettier --write .",
 		"lint": "eslint . --ext ts --ext tsx",
