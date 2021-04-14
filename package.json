@@ -9,6 +9,10 @@
 		"start": "next start",
 		"release": "vercel --prod && np --no-publish"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/01factory/01factory.github.io"
+	},
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org",
