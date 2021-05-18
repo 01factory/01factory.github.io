@@ -44,7 +44,8 @@
 		"react-quill": "^1.3.5",
 		"react-simple-code-editor": "^0.11.0",
 		"rehype-autolink-headings": "^5.0.1",
-		"swiper": "^6.5.0"
+		"swiper": "^6.5.0",
+		"use-url-search-params": "^2.3.13"
 	},
 	"devDependencies": {
 		"@mapbox/rehype-prism": "^0.6.0",
