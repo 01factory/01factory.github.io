@@ -1,0 +1,173 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title class="jsx-2893578415">01factory|01微工厂</title><meta name="keywords" content="01factory,dfactory,01" class="jsx-2893578415"/><meta name="description" content="微工厂,从零到壹，数字之道" class="jsx-2893578415"/><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32x32.ico" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16x16.ico" class="jsx-2893578415"/><meta name="next-head-count" content="8"/><link rel="preload" href="/_next/static/css/350e09057e231801b32f.css" as="style"/><link rel="stylesheet" href="/_next/static/css/350e09057e231801b32f.css" data-n-g=""/><link rel="preload" href="/_next/static/css/abda9a0727540f9d02a2.css" as="style"/><link rel="stylesheet" href="/_next/static/css/abda9a0727540f9d02a2.css" data-n-p=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" as="script"/><link rel="preload" href="/_next/static/chunks/3ce2787f0273f3a1ab03a762b90b40c2345c9a14.e5ebd9a9dc48937a5931.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-bad2ebf842509aaadfd5.js" as="script"/><link rel="preload" href="/_next/static/chunks/7ca6ef3723f66d51885f56682249289a5bf39d9c.9b340f9d21cfc83997ce.js" as="script"/><link rel="preload" href="/_next/static/chunks/ae410835fba1f27aa0c679e1fd646b765f242a2e.47e830ac23167e0dbf80.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-f9a9a13c71df3f6c68ee.js" as="script"/><link rel="preload" href="/_next/static/chunks/0c24a1052c60616dc3c1f4f7b94677ed0d60bae0.134529ea440b13f2ddd4.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/codes/2021/04/30/2107-02d64a6202b2ba210b93.js" as="script"/></head><body><div id="__next"><div class="jsx-86683480 row "><div class="jsx-180329529 col s002"><div class="jsx-2893578415 outer"><header class="jsx-2893578415 inner"><a class="jsx-2893578415" href="/"><img height="150" width="217" src="/images/logo.png" class="jsx-2893578415 s001"/></a></header></div></div></div><div class="jsx-86683480 row "><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_design"><h2 class="jsx-244854117  ">方案文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/"><h2 class="jsx-244854117  ">开发文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_ops"><h2 class="jsx-244854117  ">运维文档</h2></a></div></div><div class="jsx-788945023"><h1>用户注册</h1><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { createHash } from &#x27;crypto&#x27;;
+import nextConnect from &#x27;next-connect&#x27;;
+import { NextApiRequest, NextApiResponse, PageConfig } from &#x27;next&#x27;;
+import anylogger from &#x27;anylogger&#x27;;
+import &#x27;@mmstudio/an000042&#x27;;
+import an49 from &#x27;@mmstudio/an000049&#x27;;
+
+const logger = anylogger(&#x27;pages/api/regdit&#x27;);
+
+export type Result = boolean;
+
+export type regtype = &#x27;1&#x27; | &#x27;2&#x27; | &#x27;3&#x27;;
+
+export type Message = {
+	user: string;
+	name: string;
+	psw: string;
+	phone: string;
+	area: string;
+	email: string;
+	type: regtype;
+}
+
+/**
+ * 用户注册
+ */
+const handler = nextConnect&lt;NextApiRequest, NextApiResponse&lt;Result&gt;&gt;();
+
+handler.put(async (req, res) =&gt; {
+	logger.debug(&#x27;msg body:&#x27;, req.body);
+	const { area, phone, psw, user, name, email, type } = req.body as Message;
+	const db = an49();
+	const tb1 = db&lt;ITbuser&gt;(&#x27;user&#x27;);
+	const e = await tb1.first(&#x27;userid&#x27;).where({
+		userid: user
+	});
+	if (e) {
+		const msg = encodeURIComponent(&#x27;用户已存在&#x27;);
+		res.statusMessage = msg;
+		res.status(500).json(false);
+	} else {
+		const tb2 = db&lt;ITbuser&gt;(&#x27;user&#x27;);
+		const val = md5(psw);
+		await tb2.insert({
+			userid: user,
+			name,
+			phone,
+			psw: val,
+			email,
+			role: &#x27;team&#x27;
+		});
+		const tb4 = db&lt;ITbtype&gt;(&#x27;type&#x27;);
+		const data = await tb4.first(&#x27;type&#x27;).where({
+			type_no: type
+		});
+		const tb3 = db&lt;ITbteam&gt;(&#x27;team&#x27;);
+		await tb3.insert({
+			userid: user,
+			area,
+			project_type_no: type,
+			project_type: data.type,
+			phone
+		});
+		res.status(200).json(true);
+	}
+});
+
+export const config = {} as PageConfig;
+
+export default handler;
+
+function md5(value: string) {
+	return createHash(&#x27;md5&#x27;).update(value).digest(&#x27;hex&#x27;);
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> createHash <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'crypto'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> nextConnect <span class="token keyword">from</span> <span class="token string">'next-connect'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> NextApiRequest<span class="token punctuation">,</span> NextApiResponse<span class="token punctuation">,</span> PageConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'next'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> anylogger <span class="token keyword">from</span> <span class="token string">'anylogger'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'@mmstudio/an000042'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> an49 <span class="token keyword">from</span> <span class="token string">'@mmstudio/an000049'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token function">anylogger</span><span class="token punctuation">(</span><span class="token string">'pages/api/regdit'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Result</span> <span class="token operator">=</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">regtype</span> <span class="token operator">=</span> <span class="token string">'1'</span> <span class="token operator">|</span> <span class="token string">'2'</span> <span class="token operator">|</span> <span class="token string">'3'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Message</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+	user<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	psw<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	phone<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	area<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	email<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	<span class="token keyword">type</span><span class="token operator">:</span> regtype<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 用户注册
+ */</span>
+<span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token generic-function"><span class="token function">nextConnect</span><span class="token generic class-name"><span class="token operator">&lt;</span>NextApiRequest<span class="token punctuation">,</span> NextApiResponse<span class="token operator">&lt;</span>Result<span class="token operator">>></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+handler<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">'msg body:'</span><span class="token punctuation">,</span> req<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">{</span> area<span class="token punctuation">,</span> phone<span class="token punctuation">,</span> psw<span class="token punctuation">,</span> user<span class="token punctuation">,</span> name<span class="token punctuation">,</span> email<span class="token punctuation">,</span> <span class="token keyword">type</span> <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>body <span class="token keyword">as</span> Message<span class="token punctuation">;</span>
+	<span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token function">an49</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> tb1 <span class="token operator">=</span> <span class="token generic-function"><span class="token function">db</span><span class="token generic class-name"><span class="token operator">&lt;</span>ITbuser<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> e <span class="token operator">=</span> <span class="token keyword">await</span> tb1<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token string">'userid'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+		userid<span class="token operator">:</span> user
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> msg <span class="token operator">=</span> <span class="token function">encodeURIComponent</span><span class="token punctuation">(</span><span class="token string">'用户已存在'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		res<span class="token punctuation">.</span>statusMessage <span class="token operator">=</span> msg<span class="token punctuation">;</span>
+		res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> tb2 <span class="token operator">=</span> <span class="token generic-function"><span class="token function">db</span><span class="token generic class-name"><span class="token operator">&lt;</span>ITbuser<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> val <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span>psw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">await</span> tb2<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			userid<span class="token operator">:</span> user<span class="token punctuation">,</span>
+			name<span class="token punctuation">,</span>
+			phone<span class="token punctuation">,</span>
+			psw<span class="token operator">:</span> val<span class="token punctuation">,</span>
+			email<span class="token punctuation">,</span>
+			role<span class="token operator">:</span> <span class="token string">'team'</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> tb4 <span class="token operator">=</span> <span class="token generic-function"><span class="token function">db</span><span class="token generic class-name"><span class="token operator">&lt;</span>ITbtype<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">'type'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> tb4<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token string">'type'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			type_no<span class="token operator">:</span> <span class="token keyword">type</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> tb3 <span class="token operator">=</span> <span class="token generic-function"><span class="token function">db</span><span class="token generic class-name"><span class="token operator">&lt;</span>ITbteam<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">'team'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">await</span> tb3<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			userid<span class="token operator">:</span> user<span class="token punctuation">,</span>
+			area<span class="token punctuation">,</span>
+			project_type_no<span class="token operator">:</span> <span class="token keyword">type</span><span class="token punctuation">,</span>
+			project_type<span class="token operator">:</span> data<span class="token punctuation">.</span><span class="token keyword">type</span><span class="token punctuation">,</span>
+			phone
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token keyword">as</span> PageConfig<span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> handler<span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">md5</span><span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'md5'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></div><div class="jsx-1988653958 outer"><footer class="jsx-1988653958 inner"><a href="https://github.com/01factory/01factory.github.io/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Github</a><br class="jsx-1988653958"/><a href="https://gitee.com/dfactory01/dfactory01/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Gitee</a></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/codes/2021/04/30/2107","query":{},"buildId":"972PCp46gHRReQPQJsYHi","runtimeConfig":{},"nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-9fc791ff9add0165917e.js"></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" async=""></script><script src="/_next/static/chunks/3ce2787f0273f3a1ab03a762b90b40c2345c9a14.e5ebd9a9dc48937a5931.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" async=""></script><script src="/_next/static/chunks/main-bad2ebf842509aaadfd5.js" async=""></script><script src="/_next/static/chunks/7ca6ef3723f66d51885f56682249289a5bf39d9c.9b340f9d21cfc83997ce.js" async=""></script><script src="/_next/static/chunks/ae410835fba1f27aa0c679e1fd646b765f242a2e.47e830ac23167e0dbf80.js" async=""></script><script src="/_next/static/chunks/pages/_app-f9a9a13c71df3f6c68ee.js" async=""></script><script src="/_next/static/chunks/0c24a1052c60616dc3c1f4f7b94677ed0d60bae0.134529ea440b13f2ddd4.js" async=""></script><script src="/_next/static/chunks/pages/codes/2021/04/30/2107-02d64a6202b2ba210b93.js" async=""></script><script src="/_next/static/972PCp46gHRReQPQJsYHi/_buildManifest.js" async=""></script><script src="/_next/static/972PCp46gHRReQPQJsYHi/_ssgManifest.js" async=""></script></body></html>

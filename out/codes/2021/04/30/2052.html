@@ -1,0 +1,239 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title class="jsx-2893578415">01factory|01微工厂</title><meta name="keywords" content="01factory,dfactory,01" class="jsx-2893578415"/><meta name="description" content="微工厂,从零到壹，数字之道" class="jsx-2893578415"/><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32x32.ico" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16x16.ico" class="jsx-2893578415"/><meta name="next-head-count" content="8"/><link rel="preload" href="/_next/static/css/350e09057e231801b32f.css" as="style"/><link rel="stylesheet" href="/_next/static/css/350e09057e231801b32f.css" data-n-g=""/><link rel="preload" href="/_next/static/css/abda9a0727540f9d02a2.css" as="style"/><link rel="stylesheet" href="/_next/static/css/abda9a0727540f9d02a2.css" data-n-p=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" as="script"/><link rel="preload" href="/_next/static/chunks/3ce2787f0273f3a1ab03a762b90b40c2345c9a14.e5ebd9a9dc48937a5931.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-bad2ebf842509aaadfd5.js" as="script"/><link rel="preload" href="/_next/static/chunks/7ca6ef3723f66d51885f56682249289a5bf39d9c.9b340f9d21cfc83997ce.js" as="script"/><link rel="preload" href="/_next/static/chunks/ae410835fba1f27aa0c679e1fd646b765f242a2e.47e830ac23167e0dbf80.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-f9a9a13c71df3f6c68ee.js" as="script"/><link rel="preload" href="/_next/static/chunks/0c24a1052c60616dc3c1f4f7b94677ed0d60bae0.134529ea440b13f2ddd4.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/codes/2021/04/30/2052-58b52c47af15f28d3eec.js" as="script"/></head><body><div id="__next"><div class="jsx-86683480 row "><div class="jsx-180329529 col s002"><div class="jsx-2893578415 outer"><header class="jsx-2893578415 inner"><a class="jsx-2893578415" href="/"><img height="150" width="217" src="/images/logo.png" class="jsx-2893578415 s001"/></a></header></div></div></div><div class="jsx-86683480 row "><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_design"><h2 class="jsx-244854117  ">方案文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/"><h2 class="jsx-244854117  ">开发文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_ops"><h2 class="jsx-244854117  ">运维文档</h2></a></div></div><div class="jsx-788945023"><h1>Uploader</h1><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { useState } from &#x27;react&#x27;;
+import Uppy from &#x27;@uppy/core&#x27;;
+import XHRUpload from &#x27;@uppy/xhr-upload&#x27;;
+// import Webcam from &#x27;@uppy/webcam&#x27;;
+// import ScreenCapture from &#x27;@uppy/screen-capture&#x27;;
+// import ImageEditor from &#x27;@uppy/image-editor&#x27;;
+// import OneDrive from &#x27;@uppy/onedrive&#x27;;
+// import Instagram from &#x27;@uppy/instagram&#x27;;
+import { DashboardModal, useUppy } from &#x27;@uppy/react&#x27;;
+import &#x27;@uppy/core/dist/style.css&#x27;;
+import &#x27;@uppy/dashboard/dist/style.css&#x27;;
+import &#x27;@uppy/progress-bar/dist/style.css&#x27;;
+import &#x27;@uppy/status-bar/dist/style.css&#x27;;
+import { useToasts } from &#x27;@geist-ui/react&#x27;;
+import { Result } from &#x27;../pages/api/upload&#x27;;
+
+/**
+ * 文件上传
+ */
+export default function Uploader({ file, onClose }: { file: string; onClose(s: string): void; }) {
+	const endpoint = &#x27;/api/upload&#x27;;
+	const getfile = &#x27;/api/getfile/&#x27;;
+	const [filepath, setfilepath] = useState(file);
+	const [, toast] = useToasts();
+	const [open, setopen] = useState(false);
+	const uppy = useUppy(() =&gt; {
+		const uppy = Uppy({
+			allowMultipleUploads: false,
+			autoProceed: true,
+			debug: true,
+			restrictions: {
+				maxFileSize: 10737418240,	// 10gb 1024=1kb 1024*1024=1mb 1024*1024*1024=1gb
+				maxNumberOfFiles: 1,
+				minNumberOfFiles: 1,
+				allowedFileTypes: [&#x27;application/x-7z-compressed&#x27;, &#x27;application/x-gzip&#x27;, &#x27;application/zip&#x27;, &#x27;application/x-rar&#x27;]
+			}
+		});
+		uppy.use(XHRUpload, {
+			fieldName: &#x27;file&#x27;,
+			formData: true,
+			method: &#x27;PUT&#x27;,
+			endpoint,
+			timeout: 1000 * 60 * 10	// 10分钟
+		});
+		uppy.on(&#x27;complete&#x27;, (result) =&gt; {
+			// 以下代码可将上传的内容变成下载链接,放在页面上.
+			const [success] = result.successful;
+			if (success) {
+				const ret = success.response.body as Result;
+				if (ret.ok) {
+					toast({
+						text: &#x27;上传成功&#x27;,
+						type: &#x27;success&#x27;
+					});
+					const file = getfile + ret.fileid;
+					setfilepath(file);
+					setopen(false);
+					onClose(file);
+				} else {
+					toast({
+						text: &#x27;上传失败&#x27;,
+						type: &#x27;error&#x27;
+					});
+					setfilepath(&#x27;&#x27;);
+				}
+			}
+		});
+		uppy.on(&#x27;error&#x27;, () =&gt; {
+			toast({
+				text: &#x27;上传失败&#x27;,
+				type: &#x27;error&#x27;
+			});
+			setfilepath(&#x27;&#x27;);
+		});
+		return uppy;
+	});
+	return &lt;&gt;
+		&lt;div&gt;
+			{filepath &amp;&amp; &lt;a href={filepath} download&gt;下载&lt;/a&gt;}
+		&lt;/div&gt;
+		&lt;input type=&#x27;button&#x27; value=&#x27;上传文件...&#x27; onClick={() =&gt; {
+			setopen(true);
+		}} /&gt;
+		&lt;DashboardModal closeModalOnClickOutside uppy={uppy} open={open}
+			onRequestClose={() =&gt; {
+				setopen(false);
+			}} /&gt;
+		&lt;style jsx&gt;{`
+input{
+margin:10px;
+padding-top:10px;
+padding-bottom:10px;
+padding-left:50px;
+padding-right:50px;
+border-style: none;
+background-color: #202523a1;
+color: #ffd00071;
+border-radius: 15px;
+transition: all 800ms;
+}
+input:hover{
+background-color: #499b41a1;
+color: #ffd000ab;
+}
+`}&lt;/style&gt;
+	&lt;/&gt;;
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Uppy <span class="token keyword">from</span> <span class="token string">'@uppy/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> XHRUpload <span class="token keyword">from</span> <span class="token string">'@uppy/xhr-upload'</span><span class="token punctuation">;</span>
+<span class="token comment">// import Webcam from '@uppy/webcam';</span>
+<span class="token comment">// import ScreenCapture from '@uppy/screen-capture';</span>
+<span class="token comment">// import ImageEditor from '@uppy/image-editor';</span>
+<span class="token comment">// import OneDrive from '@uppy/onedrive';</span>
+<span class="token comment">// import Instagram from '@uppy/instagram';</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> DashboardModal<span class="token punctuation">,</span> useUppy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@uppy/react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'@uppy/core/dist/style.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'@uppy/dashboard/dist/style.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'@uppy/progress-bar/dist/style.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'@uppy/status-bar/dist/style.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useToasts <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@geist-ui/react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Result <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../pages/api/upload'</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 文件上传
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Uploader</span><span class="token punctuation">(</span><span class="token punctuation">{</span> file<span class="token punctuation">,</span> onClose <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> file<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span> <span class="token function">onClose</span><span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> endpoint <span class="token operator">=</span> <span class="token string">'/api/upload'</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> getfile <span class="token operator">=</span> <span class="token string">'/api/getfile/'</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>filepath<span class="token punctuation">,</span> setfilepath<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> toast<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useToasts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>open<span class="token punctuation">,</span> setopen<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> uppy <span class="token operator">=</span> <span class="token function">useUppy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> uppy <span class="token operator">=</span> <span class="token function">Uppy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			allowMultipleUploads<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+			autoProceed<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+			debug<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+			restrictions<span class="token operator">:</span> <span class="token punctuation">{</span>
+				maxFileSize<span class="token operator">:</span> <span class="token number">10737418240</span><span class="token punctuation">,</span>	<span class="token comment">// 10gb 1024=1kb 1024*1024=1mb 1024*1024*1024=1gb</span>
+				maxNumberOfFiles<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+				minNumberOfFiles<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+				allowedFileTypes<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'application/x-7z-compressed'</span><span class="token punctuation">,</span> <span class="token string">'application/x-gzip'</span><span class="token punctuation">,</span> <span class="token string">'application/zip'</span><span class="token punctuation">,</span> <span class="token string">'application/x-rar'</span><span class="token punctuation">]</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		uppy<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>XHRUpload<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+			fieldName<span class="token operator">:</span> <span class="token string">'file'</span><span class="token punctuation">,</span>
+			formData<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+			method<span class="token operator">:</span> <span class="token string">'PUT'</span><span class="token punctuation">,</span>
+			endpoint<span class="token punctuation">,</span>
+			timeout<span class="token operator">:</span> <span class="token number">1000</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">10</span>	<span class="token comment">// 10分钟</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		uppy<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'complete'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+			<span class="token comment">// 以下代码可将上传的内容变成下载链接,放在页面上.</span>
+			<span class="token keyword">const</span> <span class="token punctuation">[</span>success<span class="token punctuation">]</span> <span class="token operator">=</span> result<span class="token punctuation">.</span>successful<span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>success<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">const</span> ret <span class="token operator">=</span> success<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token keyword">as</span> Result<span class="token punctuation">;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>ret<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token function">toast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+						text<span class="token operator">:</span> <span class="token string">'上传成功'</span><span class="token punctuation">,</span>
+						<span class="token keyword">type</span><span class="token operator">:</span> <span class="token string">'success'</span>
+					<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">const</span> file <span class="token operator">=</span> getfile <span class="token operator">+</span> ret<span class="token punctuation">.</span>fileid<span class="token punctuation">;</span>
+					<span class="token function">setfilepath</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token function">setopen</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token function">onClose</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+					<span class="token function">toast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+						text<span class="token operator">:</span> <span class="token string">'上传失败'</span><span class="token punctuation">,</span>
+						<span class="token keyword">type</span><span class="token operator">:</span> <span class="token string">'error'</span>
+					<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token function">setfilepath</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		uppy<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+			<span class="token function">toast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+				text<span class="token operator">:</span> <span class="token string">'上传失败'</span><span class="token punctuation">,</span>
+				<span class="token keyword">type</span><span class="token operator">:</span> <span class="token string">'error'</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">setfilepath</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> uppy<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>div<span class="token operator">></span>
+			<span class="token punctuation">{</span>filepath <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token punctuation">{</span>filepath<span class="token punctuation">}</span> download<span class="token operator">></span>下载<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">}</span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+		<span class="token operator">&lt;</span>input <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">'button'</span> value<span class="token operator">=</span><span class="token string">'上传文件...'</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+			<span class="token function">setopen</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>DashboardModal closeModalOnClickOutside uppy<span class="token operator">=</span><span class="token punctuation">{</span>uppy<span class="token punctuation">}</span> open<span class="token operator">=</span><span class="token punctuation">{</span>open<span class="token punctuation">}</span>
+			onRequestClose<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+				<span class="token function">setopen</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+input{
+margin:10px;
+padding-top:10px;
+padding-bottom:10px;
+padding-left:50px;
+padding-right:50px;
+border-style: none;
+background-color: #202523a1;
+color: #ffd00071;
+border-radius: 15px;
+transition: all 800ms;
+}
+input:hover{
+background-color: #499b41a1;
+color: #ffd000ab;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></div><div class="jsx-1988653958 outer"><footer class="jsx-1988653958 inner"><a href="https://github.com/01factory/01factory.github.io/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Github</a><br class="jsx-1988653958"/><a href="https://gitee.com/dfactory01/dfactory01/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Gitee</a></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/codes/2021/04/30/2052","query":{},"buildId":"972PCp46gHRReQPQJsYHi","runtimeConfig":{},"nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-9fc791ff9add0165917e.js"></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" async=""></script><script src="/_next/static/chunks/3ce2787f0273f3a1ab03a762b90b40c2345c9a14.e5ebd9a9dc48937a5931.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" async=""></script><script src="/_next/static/chunks/main-bad2ebf842509aaadfd5.js" async=""></script><script src="/_next/static/chunks/7ca6ef3723f66d51885f56682249289a5bf39d9c.9b340f9d21cfc83997ce.js" async=""></script><script src="/_next/static/chunks/ae410835fba1f27aa0c679e1fd646b765f242a2e.47e830ac23167e0dbf80.js" async=""></script><script src="/_next/static/chunks/pages/_app-f9a9a13c71df3f6c68ee.js" async=""></script><script src="/_next/static/chunks/0c24a1052c60616dc3c1f4f7b94677ed0d60bae0.134529ea440b13f2ddd4.js" async=""></script><script src="/_next/static/chunks/pages/codes/2021/04/30/2052-58b52c47af15f28d3eec.js" async=""></script><script src="/_next/static/972PCp46gHRReQPQJsYHi/_buildManifest.js" async=""></script><script src="/_next/static/972PCp46gHRReQPQJsYHi/_ssgManifest.js" async=""></script></body></html>
