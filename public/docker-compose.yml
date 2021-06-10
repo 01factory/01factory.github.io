@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  01factory:
+    stdin_open: true
+    tty: true
+    image: taoqf/node:latest
+    volumes:
+      - ./data/01factory:/01factory
+      # - C:/Users/Administrator/.ssh:/root/.ssh
+    ports: 
+      - 3000:3000
