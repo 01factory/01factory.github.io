@@ -1,0 +1,407 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title class="jsx-2893578415">01factory|01微工厂</title><meta name="keywords" content="01factory,dfactory,01" class="jsx-2893578415"/><meta name="description" content="微工厂,从零到壹，数字之道" class="jsx-2893578415"/><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32x32.ico" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16x16.ico" class="jsx-2893578415"/><meta name="next-head-count" content="8"/><link rel="preload" href="/_next/static/css/350e09057e231801b32f.css" as="style"/><link rel="stylesheet" href="/_next/static/css/350e09057e231801b32f.css" data-n-g=""/><link rel="preload" href="/_next/static/css/abda9a0727540f9d02a2.css" as="style"/><link rel="stylesheet" href="/_next/static/css/abda9a0727540f9d02a2.css" data-n-p=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" as="script"/><link rel="preload" href="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-99016dfb960f134c798a.js" as="script"/><link rel="preload" href="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" as="script"/><link rel="preload" href="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" as="script"/><link rel="preload" href="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/documents/2021/03/151340-14c1aacb65adc655fad9.js" as="script"/></head><body><div id="__next"><div class="jsx-86683480 row "><div class="jsx-180329529 col s002"><div class="jsx-2893578415 outer"><header class="jsx-2893578415 inner"><a class="jsx-2893578415" href="/"><img height="150" width="217" src="/images/logo.png" class="jsx-2893578415 s001"/></a></header></div></div></div><div class="jsx-86683480 row "><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_design"><h2 class="jsx-244854117  ">方案文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/"><h2 class="jsx-244854117  ">开发文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_ops"><h2 class="jsx-244854117  ">运维文档</h2></a></div></div><div class="jsx-788945023"><h1>文件服务</h1><h2>文件存储服务</h2><p>文件存储的方式可以保存在磁盘上，也可以保存进一些存储服务。我们选择使用miniio用来作为文件的存储。</p><h3>启动服务</h3><p>使用docker启动存储服务，将以下内容保存为yaml文件(如docker.yaml)，或将内容合并至某一个已存在的docker配置文件中，并使用docker-compose启动它</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">version: &#x27;3.7&#x27;
+services:
+  minio:
+    image: minio/minio
+    command: server /data
+    volumes:
+      - ./data/minio:/data
+    ports:
+      - 9000:9000
+    environment:
+      MINIO_ACCESS_KEY: 01factory
+      MINIO_SECRET_KEY: 01factory</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.7'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">minio</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> minio/minio
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> server /data
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./data/minio<span class="token punctuation">:</span>/data
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 9000<span class="token punctuation">:</span><span class="token number">9000</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">MINIO_ACCESS_KEY</span><span class="token punctuation">:</span> 01factory
+      <span class="token key atrule">MINIO_SECRET_KEY</span><span class="token punctuation">:</span> 01factory<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h3>配置连接参数</h3><p>项目下新建mm.json文件（如果已存在，向里面新增内容即可）</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">{
+	&quot;minio&quot;: {
+		&quot;endPoint&quot;: &quot;127.0.0.1&quot;,
+		&quot;port&quot;: 9000,
+		&quot;accessKey&quot;: &quot;01factory&quot;,
+		&quot;secretKey&quot;: &quot;01factory&quot;,
+		&quot;useSSL&quot;: false,
+		&quot;region&quot;: &quot;cn-north-1&quot;,
+		&quot;partSize&quot;: 5242880
+	}
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token punctuation">{</span>
+	<span class="token property">"minio"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">"endPoint"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+		<span class="token property">"port"</span><span class="token operator">:</span> <span class="token number">9000</span><span class="token punctuation">,</span>
+		<span class="token property">"accessKey"</span><span class="token operator">:</span> <span class="token string">"01factory"</span><span class="token punctuation">,</span>
+		<span class="token property">"secretKey"</span><span class="token operator">:</span> <span class="token string">"01factory"</span><span class="token punctuation">,</span>
+		<span class="token property">"useSSL"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+		<span class="token property">"region"</span><span class="token operator">:</span> <span class="token string">"cn-north-1"</span><span class="token punctuation">,</span>
+		<span class="token property">"partSize"</span><span class="token operator">:</span> <span class="token number">5242880</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><p>使用命令docker-compose启动它</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">sudo docker-compose -f ./docker.yml up</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token function">sudo</span> docker-compose -f ./docker.yml up<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h3>安装依赖库</h3><h2>文件服务配置</h2><p>凡是需要读取文件的服务，均需将服务配置中的bodyParser值修改为<code>false</code>。</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">export const config = {
+	api: {
+		bodyParser: false
+	}
+} as PageConfig;</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">export</span> <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+	api<span class="token operator">:</span> <span class="token punctuation">{</span>
+		bodyParser<span class="token operator">:</span> <span class="token boolean">false</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">as</span> PageConfig<span class="token punctuation">;</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>上传</h2><p>可以使用我们封装好的一个原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000045"><code>@mmstudio/an000045</code></a>来完成。</p><p>安装依赖库</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">yarn add @mmstudio/an000045 @mmtudio/config</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token function">yarn</span> <span class="token function">add</span> @mmstudio/an000045 @mmtudio/config<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><p>使用原子操作</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">handler.put(async (req, res) =&gt; {
+	const fileinfos = await an45(req);
+	res.status(200).json(info);
+});</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">handler<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> fileinfos <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">an45</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>下载</h2><p>使用原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000046"><code>@mmstudio/an000046</code></a>完成</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">export type Query = {
+	id: string;
+}
+/**
+ * 文件下载服务
+ */
+handler.get(async (req, res) =&gt; {
+	const query = req.query as Query;
+	const id = query.id;
+	const downlaod = req.query.download as string;
+	await an46(id, downlaod, req, res);
+});</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Query</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+	id<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+ * 文件下载服务
+ */</span>
+handler<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> query <span class="token operator">=</span> req<span class="token punctuation">.</span>query <span class="token keyword">as</span> Query<span class="token punctuation">;</span>
+	<span class="token keyword">const</span> id <span class="token operator">=</span> query<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+	<span class="token keyword">const</span> downlaod <span class="token operator">=</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>download <span class="token keyword">as</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	<span class="token keyword">await</span> <span class="token function">an46</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> downlaod<span class="token punctuation">,</span> req<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>删除</h2><p>使用原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000053"><code>@mmstudio/an000053</code></a></p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import an53 from &#x27;@mmstudio/an000053&#x27;;
+await an53(id1, id2, id3);</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> an53 <span class="token keyword">from</span> <span class="token string">'@mmstudio/an000053'</span><span class="token punctuation">;</span>
+<span class="token keyword">await</span> <span class="token function">an53</span><span class="token punctuation">(</span>id1<span class="token punctuation">,</span> id2<span class="token punctuation">,</span> id3<span class="token punctuation">)</span><span class="token punctuation">;</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>替换</h2><p>替换其实就是删除+保存的过程。可以使用原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000054"><code>@mmstudio/an000054</code></a></p><h2>图片/视频</h2><p>图片文件按一般文件处理即可，但是视频文件除了像其它类型文件一样处理之外，需要获取视频的播放时长等媒体信息，就不能只是保存一样那么简单，原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000044"><code>@mmstudio/an000044</code></a>可以处理这问题，但这需要电脑上安装有相应的应用。</p><p>安装</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">sudo apt install -y ffprobe ffmpeg libx264-155
+yarn add @mmstudio/an000044 @mmstudio/config</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> -y ffprobe ffmpeg libx264-155
+<span class="token function">yarn</span> <span class="token function">add</span> @mmstudio/an000044 @mmstudio/config<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>Excel</h2><p>我们也经常会用到excel文件的解析，生成以及excel的动态生成等。</p><h3>解析excel</h3><p>使用原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000041"><code>@mmstudio/an000041</code></a>可以将用户上传的文件保存到临时目录。然后使用另外一个原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000024"><code>@mmstudio/an000024</code></a>通过excel的转换将其转换为json，用以数据处理.在所有文件处理完，不要忘了删除临时文件。以下为完整的一段示例代码:</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">interface IData {
+	name: string;
+	phone: string;
+}
+export type Result = IData[];
+const handler = nextConnect&lt;NextApiRequest, NextApiResponse&lt;Result&gt;&gt;();
+/**
+ * excel上传服务
+ */
+handler.put(async (req, res) =&gt; {
+	// 解析文件
+	const files = await an41(req);
+	// excel转json
+	const ps1 = Promise.all(files.map((file) =&gt; {
+		return fs.readFile(file.path);
+	}));
+	const filbufs = await ps1;
+	const ps2 = Promise.all(filbufs.map((filebuff) =&gt; {
+		const p1 = filebuff;	// 文件内容,Buffer
+		return an24&lt;IData&gt;(p1);
+	}));
+	// clear tempfiles
+	void files.forEach((file) =&gt; {
+		return fs.rm(file.path);
+	});
+	const data = await ps2;
+	res.status(200).json(data[0][0]);
+});
+export const config = {
+	api: {
+		bodyParser: false
+	}
+} as PageConfig;</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">interface</span> <span class="token class-name">IData</span> <span class="token punctuation">{</span>
+	name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	phone<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Result</span> <span class="token operator">=</span> IData<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token generic-function"><span class="token function">nextConnect</span><span class="token generic class-name"><span class="token operator">&lt;</span>NextApiRequest<span class="token punctuation">,</span> NextApiResponse<span class="token operator">&lt;</span>Result<span class="token operator">>></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ * excel上传服务
+ */</span>
+handler<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token comment">// 解析文件</span>
+	<span class="token keyword">const</span> files <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">an41</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">// excel转json</span>
+	<span class="token keyword">const</span> ps1 <span class="token operator">=</span> <span class="token builtin">Promise</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>files<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> filbufs <span class="token operator">=</span> <span class="token keyword">await</span> ps1<span class="token punctuation">;</span>
+	<span class="token keyword">const</span> ps2 <span class="token operator">=</span> <span class="token builtin">Promise</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>filbufs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>filebuff<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> p1 <span class="token operator">=</span> filebuff<span class="token punctuation">;</span>	<span class="token comment">// 文件内容,Buffer</span>
+		<span class="token keyword">return</span> <span class="token generic-function"><span class="token function">an24</span><span class="token generic class-name"><span class="token operator">&lt;</span>IData<span class="token operator">></span></span></span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">// clear tempfiles</span>
+	<span class="token keyword">void</span> files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> fs<span class="token punctuation">.</span><span class="token function">rm</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> ps2<span class="token punctuation">;</span>
+	res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+	api<span class="token operator">:</span> <span class="token punctuation">{</span>
+		bodyParser<span class="token operator">:</span> <span class="token boolean">false</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">as</span> PageConfig<span class="token punctuation">;</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h3>下载excel</h3><p>如果是制作好的excel模板，可以将excel模板放在项目目录的public目录下，然后页面上直接使用超链接即可下载。</p><p>如果是上传到存储服务中的excel文件，则可以像普通文件一样使用原子操作<a href="https://www.npmjs.com/package/@mmstudio/an000046"><code>@mmstudio/an000046</code></a>进行下载。</p><p>如果需要动态生成excel文件。比如需要使用实时数据导出excel文件，则需要借助nodejs上可用的第三方包，如<a href="https://www.npmjs.com/package/exceljs">excel.js</a>来完成。</p></div><div class="jsx-1988653958 outer"><footer class="jsx-1988653958 inner"><a href="https://github.com/01factory/01factory.github.io/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Github</a><br class="jsx-1988653958"/><a href="https://gitee.com/dfactory01/dfactory01/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Gitee</a></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/documents/2021/03/151340","query":{},"buildId":"Xzo6kYcsOi3BexPEf7a5Z","runtimeConfig":{},"nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-5caa60317e4d0196bd5f.js"></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" async=""></script><script src="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" async=""></script><script src="/_next/static/chunks/main-99016dfb960f134c798a.js" async=""></script><script src="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" async=""></script><script src="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" async=""></script><script src="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" async=""></script><script src="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" async=""></script><script src="/_next/static/chunks/pages/documents/2021/03/151340-14c1aacb65adc655fad9.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_buildManifest.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_ssgManifest.js" async=""></script></body></html>

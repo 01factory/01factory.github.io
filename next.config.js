@@ -10,6 +10,7 @@ const withMDX = require('@next/mdx')({
 });
 
 module.exports = withMDX({
+	dir: './docs',
 	target: 'serverless',
 
 	pageExtensions: ['mdx', 'md', 'ts', 'tsx'],
@@ -30,13 +31,13 @@ module.exports = withMDX({
 	experimental: {
 		reactStrictMode: true,
 	},
-	async redirects() {
-		return [
-			{
-				source: '/',
-				destination: '/home',
-				permanent: true,
-			},
-		]
-	},
+	// async redirects() {
+	// 	return [
+	// 		{
+	// 			source: '/',
+	// 			destination: '/index',
+	// 			permanent: true,
+	// 		},
+	// 	]
+	// },
 });

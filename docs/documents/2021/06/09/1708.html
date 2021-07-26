@@ -1,0 +1,321 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title class="jsx-2893578415">01factory|01微工厂</title><meta name="keywords" content="01factory,dfactory,01" class="jsx-2893578415"/><meta name="description" content="微工厂,从零到壹，数字之道" class="jsx-2893578415"/><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32x32.ico" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16x16.ico" class="jsx-2893578415"/><meta name="next-head-count" content="8"/><link rel="preload" href="/_next/static/css/350e09057e231801b32f.css" as="style"/><link rel="stylesheet" href="/_next/static/css/350e09057e231801b32f.css" data-n-g=""/><link rel="preload" href="/_next/static/css/abda9a0727540f9d02a2.css" as="style"/><link rel="stylesheet" href="/_next/static/css/abda9a0727540f9d02a2.css" data-n-p=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" as="script"/><link rel="preload" href="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-99016dfb960f134c798a.js" as="script"/><link rel="preload" href="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" as="script"/><link rel="preload" href="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" as="script"/><link rel="preload" href="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/documents/2021/06/09/1708-19573dfd6c4776f4d269.js" as="script"/></head><body><div id="__next"><div class="jsx-86683480 row "><div class="jsx-180329529 col s002"><div class="jsx-2893578415 outer"><header class="jsx-2893578415 inner"><a class="jsx-2893578415" href="/"><img height="150" width="217" src="/images/logo.png" class="jsx-2893578415 s001"/></a></header></div></div></div><div class="jsx-86683480 row "><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_design"><h2 class="jsx-244854117  ">方案文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/"><h2 class="jsx-244854117  ">开发文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_ops"><h2 class="jsx-244854117  ">运维文档</h2></a></div></div><div class="jsx-788945023"><h1>win10docker开发环境</h1><h2>docker</h2><h3>安装</h3><ol><li>安装wsl,文档地址<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package</a>.安装包下载链接<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi</a></li><li>安装docker.下载链接<a href="https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe">https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe</a></li></ol><p>附:<a href="../../02/281652">Debian上安装docker</a></p><p>安装完毕后启动应用 <code>docker dekstop</code> .等待docker服务启动完成,点击界面上右上齿轮状按钮进入设置,勾选docker随系统启动,然后设置国内镜像.具体操作为,将</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">{
+&quot;registry-mirrors&quot;: []
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token punctuation">{</span>
+<span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><p>修改为:</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">{
+&quot;registry-mirrors&quot;: [&quot;https://docker.mirrors.ustc.edu.cn/&quot;]
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token punctuation">{</span>
+<span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://docker.mirrors.ustc.edu.cn/"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h3>下载docker-compose文件</h3><p>根据不同项目情况，会使用不同的docker-compose文件</p><a href="/docker-compose.yml" download="docker-compose.yml">点击下载docker-compose.yml</a><h3>创建docker容器</h3><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">docker compose create</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">docker compose create<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h3>启动docker容器</h3><p>首次可以使用命令</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">docker compose start</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">docker compose start<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><p>如果容器未创建，也可以直接使用命令</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">docker compose up -d</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">docker compose up -d<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><p>创建并启动容器</p><p><strong>小提示</strong>：以后也可以使用docker的桌面工具启动和停止容器</p><h3>停止docker容器</h3><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">docker compose stop</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">docker compose stop<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>开发</h2><h3>安装vscode</h3><ol><li><p>下载链接<a href="https://code.visualstudio.com/docs/?dv=win">https://code.visualstudio.com/docs/?dv=win</a></p></li><li><p>启动vscode</p></li><li><p>安装扩展1<a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker</a>,具体操作为</p><ol><li><p>复制(Copy)以下内容</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">ext install ms-azuretools.vscode-docker</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">ext <span class="token function">install</span> ms-azuretools.vscode-docker<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></li><li><p>在vscode中使用快捷键<code>Ctrl+P</code></p></li><li><p>然后使用快捷键<code>Ctrl+V</code>粘贴上面复制的内容</p></li><li><p>回车</p></li></ol></li><li><p>安装扩展2<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers</a>。安装方法同上。</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">ext install ms-vscode-remote.remote-containers</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px">ext <span class="token function">install</span> ms-vscode-remote.remote-containers<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></li></ol><h3>连接容器</h3><ol><li>上面步骤进行完之后，在vscode左侧会有鲸鱼样图标出现，点击它。</li><li>在<code>Containers</code>页签下会列出来所有的容器，容器名称一般会使用你启动容器的目录名作为前缀。</li><li>如果还没创建容器，可以使用前面介绍的方法创建容器</li><li>如果已经创建过容器，除了前面介绍的办法外，也可以直接在这里使用在容器上点击鼠标右键菜单的方式启动或停止容器</li><li>如果容器已启动，就可以通过在容器上鼠标右键连接到容器</li></ol><h3>进入开发</h3><h4>初始化项目</h4><p>首次启动容器里面没有内容，需要我们将项目代码下载下来。在以下示例中，我们使用一个原有项目来具体说明详细的操作过程。</p><ol><li><p>在vscode中，使用快捷键`Ctrl+<!-- -->`<!-- -->`打开一个终端。</p></li><li><p>在终端的位置输入以下命令切换到项目目录,这里我们使用<code>/01factory</code>作为我们的项目目录</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">cd /01factory</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token builtin class-name">cd</span> /01factory<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></li><li><p>在终端上输入命令的方式下载代码。该过程根据当前本机网络以及具体项目情况使用时间可能会有不同。一般情况下，只要网络正常，都能正常完成。</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">git clone https://gitee.com/dfactory01/p000001.git</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token function">git</span> clone https://gitee.com/dfactory01/p000001.git<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></li><li><p>在vscode中通过左侧面板中的Open按钮打开容器中的项目，默认的当前路径为<code>/root</code>,需要打开的路径为<code>/01factory/p00001</code>，可以先选择<code>../</code>上一级目录，然后依次打开<code>/01factory</code>，接着打开项目<code>p000001</code>,最后点击<code>OK</code>打开项目。<strong>注意，非首次打开项目不需要进行初始化，直接打开即可，也可以使用vscode的最近项目直接打开之前的项目</strong></p></li><li><p>根据项目情况，需要对项目进行初始化。比如nodejs项目运行<code>yarn</code>或<code>npm install</code>，java项目可能需要执行<code>mvn compile</code>，python项目需要<code>pip install -r ./requirements.txt</code>下载依赖。具体项目不同，执行的初始化命令会有不同。</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">yarn</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token function">yarn</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></li></ol><h4>开始开发调试</h4><p>不同的项目开发调试的命令不一，对于示例项目，我们可以在vscode的集成终端上输入以下命令启动开发调试</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">yarn dev</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token function">yarn</span> dev<br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><p>启动完成后，就可以通过打开具体的测试终端进行开发了，在这里我们使用的方式为在chrome浏览器输入网址<a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a>进行开发</p><p>这时，在vscode中修改代码，在测试终端（浏览器）中对应的页面就会发生改变了。</p></div><div class="jsx-1988653958 outer"><footer class="jsx-1988653958 inner"><a href="https://github.com/01factory/01factory.github.io/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Github</a><br class="jsx-1988653958"/><a href="https://gitee.com/dfactory01/dfactory01/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Gitee</a></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/documents/2021/06/09/1708","query":{},"buildId":"Xzo6kYcsOi3BexPEf7a5Z","runtimeConfig":{},"nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-5caa60317e4d0196bd5f.js"></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" async=""></script><script src="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" async=""></script><script src="/_next/static/chunks/main-99016dfb960f134c798a.js" async=""></script><script src="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" async=""></script><script src="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" async=""></script><script src="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" async=""></script><script src="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" async=""></script><script src="/_next/static/chunks/pages/documents/2021/06/09/1708-19573dfd6c4776f4d269.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_buildManifest.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_ssgManifest.js" async=""></script></body></html>

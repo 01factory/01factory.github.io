@@ -1,0 +1,711 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title class="jsx-2893578415">01factory|01微工厂</title><meta name="keywords" content="01factory,dfactory,01" class="jsx-2893578415"/><meta name="description" content="微工厂,从零到壹，数字之道" class="jsx-2893578415"/><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32x32.ico" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16x16.ico" class="jsx-2893578415"/><meta name="next-head-count" content="8"/><link rel="preload" href="/_next/static/css/350e09057e231801b32f.css" as="style"/><link rel="stylesheet" href="/_next/static/css/350e09057e231801b32f.css" data-n-g=""/><link rel="preload" href="/_next/static/css/abda9a0727540f9d02a2.css" as="style"/><link rel="stylesheet" href="/_next/static/css/abda9a0727540f9d02a2.css" data-n-p=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" as="script"/><link rel="preload" href="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-99016dfb960f134c798a.js" as="script"/><link rel="preload" href="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" as="script"/><link rel="preload" href="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" as="script"/><link rel="preload" href="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/codes/2021/07/25/1130-7c919a96dfb925386758.js" as="script"/></head><body><div id="__next"><div class="jsx-86683480 row "><div class="jsx-180329529 col s002"><div class="jsx-2893578415 outer"><header class="jsx-2893578415 inner"><a class="jsx-2893578415" href="/"><img height="150" width="217" src="/images/logo.png" class="jsx-2893578415 s001"/></a></header></div></div></div><div class="jsx-86683480 row "><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_design"><h2 class="jsx-244854117  ">方案文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/"><h2 class="jsx-244854117  ">开发文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_ops"><h2 class="jsx-244854117  ">运维文档</h2></a></div></div><div class="jsx-788945023"><ul><li><ol><li><a href="#"> 页面组件</a></li></ol></li><li><ol start="2"><li><a href="#Content">Content组件</a></li></ol></li><li><ol start="3"><li><a href="#Row">Row组件</a></li></ol></li></ul><h1>列表页面</h1><h2>1. <a name=""></a> 页面组件</h2><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { GetServerSideProps, NextPage, PageConfig } from &#x27;next&#x27;;
+import Head from &#x27;next/head&#x27;;
+import Content from &#x27;./content&#x27;;
+import an49 from &#x27;@mmstudio/an000049&#x27;;
+
+interface IProps {
+	data: ITbxxx[];
+	query: Record&lt;string, string&gt;;
+}
+
+/**
+ * xxx管理
+ */
+const Page: NextPage&lt;IProps&gt; = ({ data, query }) =&gt; {
+	return (
+		&lt;&gt;
+			&lt;Head&gt;
+				&lt;title&gt;xxxx管理&lt;/title&gt;
+				&lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;&lt;/link&gt;
+				&lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; sizes=&quot;32x32&quot; href=&quot;/favicon-32x32.ico&quot; &gt;&lt;/link&gt;
+				&lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; sizes=&quot;16x16&quot; href=&quot;/favicon-16x16.ico&quot;&gt;&lt;/link&gt;
+			&lt;/Head&gt;
+			&lt;Content data={data} id={query.id} /&gt;
+		&lt;/&gt;
+	);
+};
+
+export const config: PageConfig = {
+	amp: false
+};
+
+export default Page;
+
+// pre-render this page on each request
+export const getServerSideProps: GetServerSideProps&lt;IProps&gt; = async (context) =&gt; {
+	const db = an49();
+	const tb = db&lt;ITbxxx&gt;(&#x27;xxx&#x27;);
+	const d = await tb.select(&#x27;*&#x27;).orderBy(&#x27;xxx&#x27;, &#x27;asc&#x27;);
+	const data = d.map((it) =&gt; {
+		return { ...it };
+	});
+	const query = context.query as Record&lt;string, string&gt;;
+	return {
+		props: {
+			data,
+			query
+		}
+	};
+};</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> GetServerSideProps<span class="token punctuation">,</span> NextPage<span class="token punctuation">,</span> PageConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'next'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Head <span class="token keyword">from</span> <span class="token string">'next/head'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Content <span class="token keyword">from</span> <span class="token string">'./content'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> an49 <span class="token keyword">from</span> <span class="token string">'@mmstudio/an000049'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">IProps</span> <span class="token punctuation">{</span>
+	data<span class="token operator">:</span> ITbxxx<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	query<span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * xxx管理
+ */</span>
+<span class="token keyword">const</span> Page<span class="token operator">:</span> NextPage<span class="token operator">&lt;</span>IProps<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> data<span class="token punctuation">,</span> query <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>
+		<span class="token operator">&lt;</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span>Head<span class="token operator">></span>
+				<span class="token operator">&lt;</span>title<span class="token operator">></span>xxxx管理<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+				<span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"shortcut icon"</span> href<span class="token operator">=</span><span class="token string">"/favicon.ico"</span> <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">"image/x-icon"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>link<span class="token operator">></span>
+				<span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"icon"</span> <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">"image/x-icon"</span> sizes<span class="token operator">=</span><span class="token string">"32x32"</span> href<span class="token operator">=</span><span class="token string">"/favicon-32x32.ico"</span> <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>link<span class="token operator">></span>
+				<span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"icon"</span> <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">"image/x-icon"</span> sizes<span class="token operator">=</span><span class="token string">"16x16"</span> href<span class="token operator">=</span><span class="token string">"/favicon-16x16.ico"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>link<span class="token operator">></span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>Head<span class="token operator">></span>
+			<span class="token operator">&lt;</span>Content data<span class="token operator">=</span><span class="token punctuation">{</span>data<span class="token punctuation">}</span> id<span class="token operator">=</span><span class="token punctuation">{</span>query<span class="token punctuation">.</span>id<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+	<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> config<span class="token operator">:</span> PageConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+	amp<span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Page<span class="token punctuation">;</span>
+
+<span class="token comment">// pre-render this page on each request</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> getServerSideProps<span class="token operator">:</span> GetServerSideProps<span class="token operator">&lt;</span>IProps<span class="token operator">></span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token function">an49</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> tb <span class="token operator">=</span> <span class="token generic-function"><span class="token function">db</span><span class="token generic class-name"><span class="token operator">&lt;</span>ITbxxx<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">'xxx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> d <span class="token operator">=</span> <span class="token keyword">await</span> tb<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">orderBy</span><span class="token punctuation">(</span><span class="token string">'xxx'</span><span class="token punctuation">,</span> <span class="token string">'asc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> data <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>it <span class="token punctuation">}</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> query <span class="token operator">=</span> context<span class="token punctuation">.</span>query <span class="token keyword">as</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token punctuation">{</span>
+		props<span class="token operator">:</span> <span class="token punctuation">{</span>
+			data<span class="token punctuation">,</span>
+			query
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>2. <a name="Content"></a>Content组件</h2><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { useEffect, useState } from &#x27;react&#x27;;
+import smartfetch from &#x27;@mmstudio/an000058&#x27;;
+import Search from &#x27;./search&#x27;;
+import List from &#x27;./list&#x27;;
+import api from &#x27;../../../atoms/api&#x27;;
+import Add from &#x27;./add&#x27;;
+import Title from &#x27;./title&#x27;;
+import RightContainer from &#x27;./rightcontainer&#x27;;
+import { Pagination } from &#x27;antd&#x27;;
+import { useUrlSearchParams } from &quot;use-url-search-params&quot;;
+import { Query as Q1, Result as R1, IData } from &#x27;../../api/xxx/query.api&#x27;;
+
+export default function Content(props: { query: Record&lt;string, string&gt;; data: Itbxxx[]; }) {
+	const [data, setdata] = useState&lt;R1&gt;({
+		count: 0,
+		data: []
+	});
+	const [query, setquery] = useState&lt;Q1&gt;(props.query);
+	const [, setParams] = useUrlSearchParams({}, { page: Number });
+	async function reload(q: Q1) {
+		setquery(q);
+		setParams(q);
+		const data = await smartfetch&lt;R1, Q1&gt;(api.admin.projects.search, &#x27;get&#x27;, q);
+		setdata(data);
+	}
+	useEffect(() =&gt; {
+		void reload(query);
+	}, []);
+	return &lt;&gt;
+		&lt;Title /&gt;
+		&lt;RightContainer&gt;
+			&lt;Search&lt;IData&gt;
+				pagesize={Number(query.pagesize)}
+				service={api.xxx.search}
+				initq={query.q}
+				onChange={(v) =&gt; {
+					setdata(v);
+				}} /&gt;
+			&lt;Add data={props.data} /&gt;
+		&lt;/RightContainer&gt;
+		&lt;List data={data} initData={props.data} /&gt;
+		&lt;RightContainer&gt;
+			&lt;Pagination
+				current={Number(query.page || &#x27;1&#x27;)}
+				pageSize={Number(query.pagesize || &#x27;10&#x27;)}
+				showTitle
+				total={data.count}
+				onChange={(p, s) =&gt; {
+					const q = {
+						q: query.q,
+						page: p.toString(),
+						pagesize: s.toString()
+					} as Q1;
+					setquery(q);
+					reload(q);
+				}}
+			/&gt;
+		&lt;/RightContainer&gt;
+		&lt;style jsx&gt;{`
+.c{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.ops{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+`}&lt;/style&gt;
+	&lt;/&gt;;
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> smartfetch <span class="token keyword">from</span> <span class="token string">'@mmstudio/an000058'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Search <span class="token keyword">from</span> <span class="token string">'./search'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> List <span class="token keyword">from</span> <span class="token string">'./list'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../../../atoms/api'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Add <span class="token keyword">from</span> <span class="token string">'./add'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Title <span class="token keyword">from</span> <span class="token string">'./title'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> RightContainer <span class="token keyword">from</span> <span class="token string">'./rightcontainer'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Pagination <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'antd'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useUrlSearchParams <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"use-url-search-params"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Query <span class="token keyword">as</span> <span class="token constant">Q1</span><span class="token punctuation">,</span> Result <span class="token keyword">as</span> <span class="token constant">R1</span><span class="token punctuation">,</span> IData <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../api/xxx/query.api'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Content</span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token punctuation">{</span> query<span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token operator">></span><span class="token punctuation">;</span> data<span class="token operator">:</span> Itbxxx<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>data<span class="token punctuation">,</span> setdata<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">useState</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">R1</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+		count<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+		data<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>query<span class="token punctuation">,</span> setquery<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">useState</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">Q1</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> setParams<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useUrlSearchParams</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> page<span class="token operator">:</span> Number <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">reload</span><span class="token punctuation">(</span>q<span class="token operator">:</span> <span class="token constant">Q1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">setquery</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">setParams</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token generic-function"><span class="token function">smartfetch</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">R1</span><span class="token punctuation">,</span> <span class="token constant">Q1</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>api<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>projects<span class="token punctuation">.</span>search<span class="token punctuation">,</span> <span class="token string">'get'</span><span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">setdata</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">void</span> <span class="token function">reload</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>Title <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>RightContainer<span class="token operator">></span>
+			<span class="token operator">&lt;</span>Search<span class="token operator">&lt;</span>IData<span class="token operator">></span>
+				pagesize<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">Number</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span>pagesize<span class="token punctuation">)</span><span class="token punctuation">}</span>
+				service<span class="token operator">=</span><span class="token punctuation">{</span>api<span class="token punctuation">.</span>xxx<span class="token punctuation">.</span>search<span class="token punctuation">}</span>
+				initq<span class="token operator">=</span><span class="token punctuation">{</span>query<span class="token punctuation">.</span>q<span class="token punctuation">}</span>
+				onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+					<span class="token function">setdata</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span>Add data<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>data<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>RightContainer<span class="token operator">></span>
+		<span class="token operator">&lt;</span>List data<span class="token operator">=</span><span class="token punctuation">{</span>data<span class="token punctuation">}</span> initData<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>data<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>RightContainer<span class="token operator">></span>
+			<span class="token operator">&lt;</span>Pagination
+				current<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">Number</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span>page <span class="token operator">||</span> <span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+				pageSize<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">Number</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span>pagesize <span class="token operator">||</span> <span class="token string">'10'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+				showTitle
+				total<span class="token operator">=</span><span class="token punctuation">{</span>data<span class="token punctuation">.</span>count<span class="token punctuation">}</span>
+				onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> s<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+					<span class="token keyword">const</span> q <span class="token operator">=</span> <span class="token punctuation">{</span>
+						q<span class="token operator">:</span> query<span class="token punctuation">.</span>q<span class="token punctuation">,</span>
+						page<span class="token operator">:</span> p<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+						pagesize<span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+					<span class="token punctuation">}</span> <span class="token keyword">as</span> <span class="token constant">Q1</span><span class="token punctuation">;</span>
+					<span class="token function">setquery</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token function">reload</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">}</span>
+			<span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>RightContainer<span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.c{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.ops{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2><a href="../../05/18/1524">Search查询组件</a></h2><h2><a href="./1320">Row组件</a></h2><h2>Add新增组件</h2><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { Form, Input, InputNumber, Select } from &#x27;antd&#x27;;
+import { useState } from &#x27;react&#x27;;
+import smartfetch from &#x27;@mmstudio/an000058&#x27;;
+import AddButton from &#x27;./addbutton&#x27;;
+
+export default function Add({ data }: { data: ITbxxx[]; }) {
+	const [d, setd] = useState({ dataids: [] } as { dataids: string[]; });
+	const mapdata = data.reduce((map, it) =&gt; {
+		return map.set(it.xxx, it);
+	}, new Map&lt;string, XXX&gt;());
+	return &lt;AddButton
+		dlgtitle=&#x27;xxx&#x27;
+		onSave={async () =&gt; {
+			if (!d.xxx === undefined || !d.yyy) {
+				return &#x27;请填写完整&#x27;;
+			}
+			const data = await smartfetch&lt;xxx, xxx&gt;(&#x27;/api/xxx&#x27;, &#x27;put&#x27;, {
+				...d
+			});
+			return data.ok || data.message;
+		}}
+	&gt;
+		&lt;Form.Item required label=&quot;xxx:&quot;&gt;
+			&lt;InputNumber min={&#x27;1&#x27;} placeholder=&#x27;xxx&#x27; value={d.xxx} onChange={(e) =&gt; {
+				setd({
+					...d,
+					xxx: e
+				})
+			}} /&gt;
+		&lt;/Form.Item&gt;
+		&lt;Form.Item required label=&quot;xxx:&quot;&gt;
+			&lt;Input placeholder=&#x27;xxx&#x27; value={d.xxx} onChange={(e) =&gt; {
+				setd({
+					...d,
+					xxx: e.target.value
+				});
+			}} /&gt;
+		&lt;/Form.Item&gt;
+		&lt;Form.Item label=&quot;xxx&quot;&gt;
+			&lt;Select
+				mode=&quot;multiple&quot;
+				optionFilterProp=&quot;children&quot;
+				filterOption={(input, option) =&gt; {
+					return option.children.indexOf(input) &gt;= 0
+				}}
+				placeholder=&#x27;xxx&#x27;
+				value={d.dataids}
+				onChange={(e) =&gt; {
+					const dataids = e.map((it) =&gt; {
+						return mapdata.get(it);
+					});
+					setd({
+						...d,
+						dataids
+					});
+				}} &gt;
+				{data.map((it) =&gt; {
+					return &lt;Select.Option key={it.id} value={it.id} &gt;{it.name}&lt;/Select.Option&gt;
+				})}
+			&lt;/Select&gt;
+		&lt;/Form.Item&gt;
+	&lt;/AddButton&gt;;
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> Form<span class="token punctuation">,</span> Input<span class="token punctuation">,</span> InputNumber<span class="token punctuation">,</span> Select <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'antd'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> smartfetch <span class="token keyword">from</span> <span class="token string">'@mmstudio/an000058'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> AddButton <span class="token keyword">from</span> <span class="token string">'./addbutton'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> data<span class="token operator">:</span> ITbxxx<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>d<span class="token punctuation">,</span> setd<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> dataids<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token keyword">as</span> <span class="token punctuation">{</span> dataids<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> mapdata <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span> it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span>xxx<span class="token punctuation">,</span> it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token constant">XXX</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span>AddButton
+		dlgtitle<span class="token operator">=</span><span class="token string">'xxx'</span>
+		onSave<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>d<span class="token punctuation">.</span>xxx <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">||</span> <span class="token operator">!</span>d<span class="token punctuation">.</span>yyy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token string">'请填写完整'</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token generic-function"><span class="token function">smartfetch</span><span class="token generic class-name"><span class="token operator">&lt;</span>xxx<span class="token punctuation">,</span> xxx<span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token string">'/api/xxx'</span><span class="token punctuation">,</span> <span class="token string">'put'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+				<span class="token operator">...</span>d
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">return</span> data<span class="token punctuation">.</span>ok <span class="token operator">||</span> data<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">}</span>
+	<span class="token operator">></span>
+		<span class="token operator">&lt;</span>Form<span class="token punctuation">.</span>Item required label<span class="token operator">=</span><span class="token string">"xxx:"</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span>InputNumber min<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'1'</span><span class="token punctuation">}</span> placeholder<span class="token operator">=</span><span class="token string">'xxx'</span> value<span class="token operator">=</span><span class="token punctuation">{</span>d<span class="token punctuation">.</span>xxx<span class="token punctuation">}</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+				<span class="token function">setd</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+					<span class="token operator">...</span>d<span class="token punctuation">,</span>
+					xxx<span class="token operator">:</span> e
+				<span class="token punctuation">}</span><span class="token punctuation">)</span>
+			<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token punctuation">.</span>Item<span class="token operator">></span>
+		<span class="token operator">&lt;</span>Form<span class="token punctuation">.</span>Item required label<span class="token operator">=</span><span class="token string">"xxx:"</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span>Input placeholder<span class="token operator">=</span><span class="token string">'xxx'</span> value<span class="token operator">=</span><span class="token punctuation">{</span>d<span class="token punctuation">.</span>xxx<span class="token punctuation">}</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+				<span class="token function">setd</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+					<span class="token operator">...</span>d<span class="token punctuation">,</span>
+					xxx<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+				<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token punctuation">.</span>Item<span class="token operator">></span>
+		<span class="token operator">&lt;</span>Form<span class="token punctuation">.</span>Item label<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span>Select
+				mode<span class="token operator">=</span><span class="token string">"multiple"</span>
+				optionFilterProp<span class="token operator">=</span><span class="token string">"children"</span>
+				filterOption<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> option<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+					<span class="token keyword">return</span> option<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span>
+				<span class="token punctuation">}</span><span class="token punctuation">}</span>
+				placeholder<span class="token operator">=</span><span class="token string">'xxx'</span>
+				value<span class="token operator">=</span><span class="token punctuation">{</span>d<span class="token punctuation">.</span>dataids<span class="token punctuation">}</span>
+				onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+					<span class="token keyword">const</span> dataids <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+						<span class="token keyword">return</span> mapdata<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token function">setd</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+						<span class="token operator">...</span>d<span class="token punctuation">,</span>
+						dataids
+					<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">></span>
+				<span class="token punctuation">{</span>data<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+					<span class="token keyword">return</span> <span class="token operator">&lt;</span>Select<span class="token punctuation">.</span>Option key<span class="token operator">=</span><span class="token punctuation">{</span>it<span class="token punctuation">.</span>id<span class="token punctuation">}</span> value<span class="token operator">=</span><span class="token punctuation">{</span>it<span class="token punctuation">.</span>id<span class="token punctuation">}</span> <span class="token operator">></span><span class="token punctuation">{</span>it<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>Select<span class="token punctuation">.</span>Option<span class="token operator">></span>
+				<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>Select<span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token punctuation">.</span>Item<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>AddButton<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2><a href="../26/0743">AddButton通用新增按钮</a></h2><h2><a href="./1304">Button组件</a></h2><h2><a href="../26/0747">Title面包屑组件</a></h2><h2>List列表组件</h2><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { Table } from &#x27;antd&#x27;;
+import Edit from &#x27;./edit&#x27;;
+import DelButton from &#x27;./delbutton&#x27;;
+import Shadow from &#x27;./shadow&#x27;;
+
+export default function List({ data, initData }: { data: IData[]; initData: ITbxxx[]; }) {
+	return &lt;&gt;
+		&lt;Shadow&gt;
+			&lt;Table columns={[
+				{
+					title: &#x27;xxx&#x27;,
+					dataIndex: &#x27;xxx&#x27;,
+					key: &#x27;xxx&#x27;,
+					width: &#x27;6rem&#x27;,
+					align: &#x27;center&#x27;
+				},
+				{
+					title: &#x27;操作&#x27;,
+					key: &#x27;action&#x27;,
+					width: &#x27;15rem&#x27;,
+					align: &#x27;center&#x27;,
+					render(_text, record) {
+						const id = record.id;
+						return &lt;div className=&#x27;op&#x27;&gt;
+							&lt;Edit data={record} users={initData} /&gt;
+							&lt;DelButton query={{
+								id
+							}} dlgtitle=&#x27;确认删除&#x27; api={&#x27;/api/xxx&#x27;} /&gt;
+						&lt;/div&gt;
+					},
+				},
+			]}
+				bordered
+				dataSource={data}
+				pagination={false}
+			/&gt;
+		&lt;/Shadow&gt;
+		&lt;style jsx&gt;{`
+.op{
+	margin: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 14rem;
+	height: 1rem;
+	flex-wrap: nowrap;
+}
+`}&lt;/style&gt;
+	&lt;/&gt;;
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> Table <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'antd'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Edit <span class="token keyword">from</span> <span class="token string">'./edit'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> DelButton <span class="token keyword">from</span> <span class="token string">'./delbutton'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Shadow <span class="token keyword">from</span> <span class="token string">'./shadow'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">List</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data<span class="token punctuation">,</span> initData <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> data<span class="token operator">:</span> IData<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> initData<span class="token operator">:</span> ITbxxx<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>Shadow<span class="token operator">></span>
+			<span class="token operator">&lt;</span>Table columns<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>
+				<span class="token punctuation">{</span>
+					title<span class="token operator">:</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span>
+					dataIndex<span class="token operator">:</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span>
+					key<span class="token operator">:</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span>
+					width<span class="token operator">:</span> <span class="token string">'6rem'</span><span class="token punctuation">,</span>
+					align<span class="token operator">:</span> <span class="token string">'center'</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span>
+				<span class="token punctuation">{</span>
+					title<span class="token operator">:</span> <span class="token string">'操作'</span><span class="token punctuation">,</span>
+					key<span class="token operator">:</span> <span class="token string">'action'</span><span class="token punctuation">,</span>
+					width<span class="token operator">:</span> <span class="token string">'15rem'</span><span class="token punctuation">,</span>
+					align<span class="token operator">:</span> <span class="token string">'center'</span><span class="token punctuation">,</span>
+					<span class="token function">render</span><span class="token punctuation">(</span>_text<span class="token punctuation">,</span> record<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						<span class="token keyword">const</span> id <span class="token operator">=</span> record<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">'op'</span><span class="token operator">></span>
+							<span class="token operator">&lt;</span>Edit data<span class="token operator">=</span><span class="token punctuation">{</span>record<span class="token punctuation">}</span> users<span class="token operator">=</span><span class="token punctuation">{</span>initData<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+							<span class="token operator">&lt;</span>DelButton query<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+								id
+							<span class="token punctuation">}</span><span class="token punctuation">}</span> dlgtitle<span class="token operator">=</span><span class="token string">'确认删除'</span> api<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'/api/xxx'</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+						<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+					<span class="token punctuation">}</span><span class="token punctuation">,</span>
+				<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token punctuation">]</span><span class="token punctuation">}</span>
+				bordered
+				dataSource<span class="token operator">=</span><span class="token punctuation">{</span>data<span class="token punctuation">}</span>
+				pagination<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span>
+			<span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>Shadow<span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.op{
+	margin: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 14rem;
+	height: 1rem;
+	flex-wrap: nowrap;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>Edit编辑组件</h2><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { Form, Input, InputNumber, Select } from &#x27;antd&#x27;;
+import { useState } from &#x27;react&#x27;;
+import api from &#x27;../../../atoms/api&#x27;;
+import smartfetch from &#x27;@mmstudio/an000058&#x27;;
+import { Message as M1, Result as R1 } from &#x27;../../api/xxx/edit.api&#x27;;
+import { IData } from &#x27;../../api/xxx/query.api&#x27;;
+import EditButton from &#x27;../../../components/editbutton&#x27;;
+
+export default function Edit({ data, initData }: { data: IData; initData: ITbxxx[]; }) {
+	const mapinitdata = initData.reduce((map, it) =&gt; {
+		return map.set(it.id, it);
+	}, new Map&lt;string, xxx&gt;());
+	const [d, setd] = useState(data);
+	const dataids = d.users.map((it) =&gt; {
+		return it.id;
+	});
+	return &lt;&gt;
+		&lt;EditButton dlgtitle=&#x27;xxx&#x27; onSave={async () =&gt; {
+			if (!d.type_no === undefined || !d.type || !d.type_explain) {
+				return &#x27;请填写完整&#x27;;
+			}
+			const data = await smartfetch&lt;R1, M1&gt;(api.admin.types.edit, &#x27;put&#x27;, d);
+			return data.ok || data.message;
+		}} &gt;
+			&lt;Form.Item required label=&quot;xxx:&quot;&gt;
+				&lt;InputNumber placeholder=&#x27;xxx&#x27; readOnly defaultValue={d.id} /&gt;
+			&lt;/Form.Item&gt;
+			&lt;Form.Item required label=&quot;xxx:&quot; hasFeedback&gt;
+				&lt;Input type=&#x27;text&#x27; placeholder=&#x27;xxx&#x27; value={d.xxx} onChange={(e) =&gt; {
+					setd({
+						...d,
+						xxx: e.target.value
+					});
+				}} /&gt;
+			&lt;/Form.Item&gt;
+			&lt;Form.Item label=&quot;xxx&quot;&gt;
+				&lt;Select
+					mode=&quot;multiple&quot;
+					optionFilterProp=&quot;children&quot;
+					filterOption={(input, option) =&gt; {
+						return option.children.indexOf(input) &gt;= 0
+					}}
+					placeholder=&#x27;xxx&#x27;
+					value={dataids}
+					onChange={(e) =&gt; {
+						const xxx = e.map((it) =&gt; {
+							return mapinitdata.get(it);
+						});
+						setd({
+							...d,
+							xxx
+						});
+					}} &gt;
+					{initData.map((it) =&gt; {
+						return &lt;Select.Option key={it.id} value={it.id} &gt;{it.name}&lt;/Select.Option&gt;
+					})}
+				&lt;/Select&gt;
+			&lt;/Form.Item&gt;
+		&lt;/EditButton&gt;
+	&lt;/&gt;;
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> Form<span class="token punctuation">,</span> Input<span class="token punctuation">,</span> InputNumber<span class="token punctuation">,</span> Select <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'antd'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> api <span class="token keyword">from</span> <span class="token string">'../../../atoms/api'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> smartfetch <span class="token keyword">from</span> <span class="token string">'@mmstudio/an000058'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Message <span class="token keyword">as</span> <span class="token constant">M1</span><span class="token punctuation">,</span> Result <span class="token keyword">as</span> <span class="token constant">R1</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../api/xxx/edit.api'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> IData <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../api/xxx/query.api'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> EditButton <span class="token keyword">from</span> <span class="token string">'../../../components/editbutton'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Edit</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data<span class="token punctuation">,</span> initData <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> data<span class="token operator">:</span> IData<span class="token punctuation">;</span> initData<span class="token operator">:</span> ITbxxx<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> mapinitdata <span class="token operator">=</span> initData<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span> it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span>id<span class="token punctuation">,</span> it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> xxx<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>d<span class="token punctuation">,</span> setd<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> dataids <span class="token operator">=</span> d<span class="token punctuation">.</span>users<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> it<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>EditButton dlgtitle<span class="token operator">=</span><span class="token string">'xxx'</span> onSave<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>d<span class="token punctuation">.</span>type_no <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">||</span> <span class="token operator">!</span>d<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token operator">||</span> <span class="token operator">!</span>d<span class="token punctuation">.</span>type_explain<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token string">'请填写完整'</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token generic-function"><span class="token function">smartfetch</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token constant">R1</span><span class="token punctuation">,</span> <span class="token constant">M1</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>api<span class="token punctuation">.</span>admin<span class="token punctuation">.</span>types<span class="token punctuation">.</span>edit<span class="token punctuation">,</span> <span class="token string">'put'</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">return</span> data<span class="token punctuation">.</span>ok <span class="token operator">||</span> data<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">></span>
+			<span class="token operator">&lt;</span>Form<span class="token punctuation">.</span>Item required label<span class="token operator">=</span><span class="token string">"xxx:"</span><span class="token operator">></span>
+				<span class="token operator">&lt;</span>InputNumber placeholder<span class="token operator">=</span><span class="token string">'xxx'</span> readOnly defaultValue<span class="token operator">=</span><span class="token punctuation">{</span>d<span class="token punctuation">.</span>id<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token punctuation">.</span>Item<span class="token operator">></span>
+			<span class="token operator">&lt;</span>Form<span class="token punctuation">.</span>Item required label<span class="token operator">=</span><span class="token string">"xxx:"</span> hasFeedback<span class="token operator">></span>
+				<span class="token operator">&lt;</span>Input <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">'text'</span> placeholder<span class="token operator">=</span><span class="token string">'xxx'</span> value<span class="token operator">=</span><span class="token punctuation">{</span>d<span class="token punctuation">.</span>xxx<span class="token punctuation">}</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+					<span class="token function">setd</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+						<span class="token operator">...</span>d<span class="token punctuation">,</span>
+						xxx<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+					<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token punctuation">.</span>Item<span class="token operator">></span>
+			<span class="token operator">&lt;</span>Form<span class="token punctuation">.</span>Item label<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">></span>
+				<span class="token operator">&lt;</span>Select
+					mode<span class="token operator">=</span><span class="token string">"multiple"</span>
+					optionFilterProp<span class="token operator">=</span><span class="token string">"children"</span>
+					filterOption<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> option<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+						<span class="token keyword">return</span> option<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span>
+					<span class="token punctuation">}</span><span class="token punctuation">}</span>
+					placeholder<span class="token operator">=</span><span class="token string">'xxx'</span>
+					value<span class="token operator">=</span><span class="token punctuation">{</span>dataids<span class="token punctuation">}</span>
+					onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+						<span class="token keyword">const</span> xxx <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+							<span class="token keyword">return</span> mapinitdata<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						<span class="token function">setd</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+							<span class="token operator">...</span>d<span class="token punctuation">,</span>
+							xxx
+						<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">></span>
+					<span class="token punctuation">{</span>initData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+						<span class="token keyword">return</span> <span class="token operator">&lt;</span>Select<span class="token punctuation">.</span>Option key<span class="token operator">=</span><span class="token punctuation">{</span>it<span class="token punctuation">.</span>id<span class="token punctuation">}</span> value<span class="token operator">=</span><span class="token punctuation">{</span>it<span class="token punctuation">.</span>id<span class="token punctuation">}</span> <span class="token operator">></span><span class="token punctuation">{</span>it<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>Select<span class="token punctuation">.</span>Option<span class="token operator">></span>
+					<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+				<span class="token operator">&lt;</span><span class="token operator">/</span>Select<span class="token operator">></span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token punctuation">.</span>Item<span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>EditButton<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2><a href="../26/0853">通用编辑按钮组件</a></h2><h2><a href="../26/0901">通用删除按钮组件</a></h2><h2>服务</h2><ul><li><a href="../26/0914">新增服务</a></li><li><a href="../26/0920">编辑服务</a></li><li><a href="../26/0923">删除服务</a></li><li><a href="../26/0930">查询服务</a></li></ul></div><div class="jsx-1988653958 outer"><footer class="jsx-1988653958 inner"><a href="https://github.com/01factory/01factory.github.io/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Github</a><br class="jsx-1988653958"/><a href="https://gitee.com/dfactory01/dfactory01/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Gitee</a></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/codes/2021/07/25/1130","query":{},"buildId":"Xzo6kYcsOi3BexPEf7a5Z","runtimeConfig":{},"nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-5caa60317e4d0196bd5f.js"></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" async=""></script><script src="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" async=""></script><script src="/_next/static/chunks/main-99016dfb960f134c798a.js" async=""></script><script src="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" async=""></script><script src="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" async=""></script><script src="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" async=""></script><script src="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" async=""></script><script src="/_next/static/chunks/pages/codes/2021/07/25/1130-7c919a96dfb925386758.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_buildManifest.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_ssgManifest.js" async=""></script></body></html>

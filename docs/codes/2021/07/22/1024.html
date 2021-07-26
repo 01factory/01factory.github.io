@@ -1,0 +1,573 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title class="jsx-2893578415">01factory|01微工厂</title><meta name="keywords" content="01factory,dfactory,01" class="jsx-2893578415"/><meta name="description" content="微工厂,从零到壹，数字之道" class="jsx-2893578415"/><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32x32.ico" class="jsx-2893578415"/><link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16x16.ico" class="jsx-2893578415"/><meta name="next-head-count" content="8"/><link rel="preload" href="/_next/static/css/350e09057e231801b32f.css" as="style"/><link rel="stylesheet" href="/_next/static/css/350e09057e231801b32f.css" data-n-g=""/><link rel="preload" href="/_next/static/css/abda9a0727540f9d02a2.css" as="style"/><link rel="stylesheet" href="/_next/static/css/abda9a0727540f9d02a2.css" data-n-p=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" as="script"/><link rel="preload" href="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-99016dfb960f134c798a.js" as="script"/><link rel="preload" href="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" as="script"/><link rel="preload" href="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" as="script"/><link rel="preload" href="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/codes/2021/07/22/1024-5484f7d2d23a546ca656.js" as="script"/></head><body><div id="__next"><div class="jsx-86683480 row "><div class="jsx-180329529 col s002"><div class="jsx-2893578415 outer"><header class="jsx-2893578415 inner"><a class="jsx-2893578415" href="/"><img height="150" width="217" src="/images/logo.png" class="jsx-2893578415 s001"/></a></header></div></div></div><div class="jsx-86683480 row "><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_design"><h2 class="jsx-244854117  ">方案文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/"><h2 class="jsx-244854117  ">开发文档</h2></a></div><div class="jsx-158700623 col "><a class="jsx-2893578415" href="/home_ops"><h2 class="jsx-244854117  ">运维文档</h2></a></div></div><div class="jsx-788945023"><h1>左侧菜单的后台管理页面布局</h1><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { Menu } from &#x27;antd&#x27;;
+import router from &#x27;next/router&#x27;;
+import Link from &#x27;next/link&#x27;;
+import { useState, useEffect, ReactNode } from &#x27;react&#x27;;
+import &#x27;antd/dist/antd.css&#x27;
+
+const { SubMenu } = Menu;
+
+export interface IMenu {
+	icon?: string;
+	label: string;
+	key: string;
+	url?: string;
+	pkey?: string;
+	children?: IMenu[];
+}
+
+export interface IProps {
+	children: ReactNode;
+	menus: IMenu[];
+	title: string;
+	logo: string;
+	leftWidth?: string;	// 左边框宽度,带单位
+	header: ReactNode;
+	headHeight?: string;
+}
+
+export default function Layout({
+	children,
+	menus,
+	title,
+	logo,
+	leftWidth,
+	header,
+	headHeight
+}: IProps) {
+	if (!process.browser) {
+		return &lt;&gt;&lt;/&gt;;
+	}
+	const [selectedKeys, setselectedKeys] = useState&lt;string[]&gt;([]);
+	const [openKeys, setopenKeys] = useState&lt;string[]&gt;([]);
+	useEffect(() =&gt; {
+		const name = router.pathname.replace(/[.*]/, &#x27;&#x27;);
+		function getkeys(menu: IMenu, openkeys: Set&lt;string&gt;, selectkeys: string[]) {
+			if (menu.children) {
+				menu.children.forEach((m) =&gt; {
+					getkeys(m, openkeys, selectkeys);
+				});
+			}
+			if (name.startsWith(menu.url)) {
+				if (menu.pkey) {
+					openkeys.add(menu.pkey)
+				}
+				selectkeys.push(menu.key);
+			}
+		}
+		const [o, s] = menus.reduce(([o, s], c) =&gt; {
+			getkeys(c, o, s);
+			return [o, s];
+		}, [new Set&lt;string&gt;(), []] as [Set&lt;string&gt;, string[]]);
+		setopenKeys(Array.from(o));
+		setselectedKeys(s);
+	}, []);
+	const left_width = leftWidth || &#x27;12.25rem&#x27;;
+	const head_height = headHeight || &#x27;3.75rem&#x27;;
+	return &lt;&gt;
+		&lt;div className=&#x27;layout&#x27;&gt;
+			&lt;div className=&#x27;left&#x27; &gt;
+				&lt;div className=&quot;logo&quot; &gt;
+					&lt;img className=&#x27;logoimage&#x27; src={logo} alt=&quot;logo&quot; /&gt;
+					&lt;span className=&#x27;logotitle&#x27;&gt;{title}&lt;/span&gt;
+				&lt;/div&gt;
+				&lt;div className=&#x27;menu&#x27;&gt;
+					&lt;Menu
+						style={{ overflowY: &#x27;auto&#x27; }}
+						multiple={false}
+						theme=&quot;dark&quot;
+						defaultSelectedKeys={selectedKeys}
+						selectedKeys={selectedKeys}
+						openKeys={openKeys}
+						onClick={(i) =&gt; {
+							const [, ...rest] = i.keyPath;
+							setselectedKeys([i.key]);
+							setopenKeys(rest);
+						}}
+						onOpenChange={(keys) =&gt; {
+							setopenKeys(keys as string[]);
+						}}
+						mode=&quot;inline&quot;
+					&gt;
+						{menus.map((menu) =&gt; {
+							return generatemenu(menu);
+						})}
+					&lt;/Menu&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div className=&quot;right&quot;&gt;
+				&lt;Header height={head_height}&gt;{header}&lt;/Header&gt;
+				&lt;div className=&#x27;content&#x27;&gt;{children}&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;style jsx&gt;{`
+.right{
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin-left: ${left_width};
+}
+.menu{
+	overflow-y:hidden;
+}
+.menu:hover{
+	overflow: auto;
+}
+.left{
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	flex: 0;
+	background: #050F2A;
+	width:${left_width};
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	height: 100%;
+}
+.layout{
+	display: flex;
+	height: 100vh;
+	flex-direction: row;
+}
+.content{
+	padding: 1rem 3rem;
+}
+.logo {
+	display: flex;
+	align-items: center;
+	padding: 0.5rem;
+	height: ${head_height};
+}
+.logoimage{
+	height: 3rem;
+}
+.logotitle{
+	color:#008cff;
+	font-size: 22px;
+	cursor: pointer;
+}
+`}&lt;/style&gt;
+	&lt;/&gt;;
+}
+
+/**
+ * 根据数据创建菜单，但由于antd组件的bug不能使用函数组件
+ */
+function generatemenu(menu: IMenu) {
+	if (!menu.url || menu.children) {
+		return &lt;SubMenu key={menu.key} icon={&lt;Icon src={menu.icon} /&gt;} title={&lt;span className=&#x27;menulabel&#x27;&gt;{menu.label}&lt;/span&gt;}&gt;
+			{menu.children.map((m) =&gt; {
+				return generatemenu(m);
+			})}
+			&lt;style jsx&gt;{`
+.menulabel{
+font-size: 1rem;
+}
+`}&lt;/style&gt;
+		&lt;/SubMenu&gt;;
+	}
+	return &lt;Menu.Item key={menu.key} icon={menu.pkey ? &lt;SubMenuIcon src={menu.icon} /&gt; : &lt;Icon src={menu.icon} /&gt;}&gt;
+		&lt;Link href={menu.url}&gt;&lt;a&gt;&lt;span className={menu.pkey ? &#x27;menulabel2&#x27; : &#x27;menulabel&#x27;}&gt;{menu.label}&lt;/span&gt;&lt;/a&gt;&lt;/Link&gt;
+		&lt;style jsx&gt;{`
+.menulabel{
+font-size: 1rem;
+}
+.menulabel2{
+font-size: 0.9rem;
+}
+`}&lt;/style&gt;
+	&lt;/Menu.Item&gt;;
+}
+
+function Icon({ src }: { src: string }) {
+	if (!src) {
+		return &lt;&gt;&lt;/&gt;;
+	}
+	return &lt;&gt;
+		&lt;img className=&#x27;icon&#x27; src={src} /&gt;
+		&lt;style jsx&gt;{`
+.icon{
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 0.5rem;
+}
+`}&lt;/style&gt;
+	&lt;/&gt;;
+}
+
+function SubMenuIcon({ src }: { src: string }) {
+	if (!src) {
+		return &lt;&gt;&lt;/&gt;;
+	}
+	return &lt;&gt;
+		&lt;img className=&#x27;icon&#x27; src={src} /&gt;
+		&lt;style jsx&gt;{`
+.icon{
+	width: 1.1rem;
+	height: 1.1rem;
+	margin-right: 0.5rem;
+}
+`}&lt;/style&gt;
+	&lt;/&gt;;
+}
+
+function Header({ children, height }: { children: ReactNode; height: string; }) {
+	return &lt;Shadow&gt;
+		&lt;div className=&#x27;c&#x27;&gt;{children}&lt;/div&gt;
+		&lt;style jsx&gt;{`
+.c{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	width: 100%;
+	height: ${height};
+}
+`}&lt;/style&gt;
+	&lt;/Shadow&gt;;
+}
+
+function Shadow({ children }: { children: ReactNode; }) {
+	return &lt;&gt;
+		&lt;div&gt;{children}&lt;/div&gt;
+		&lt;style jsx&gt;{`
+div{
+	box-shadow: 0.2rem 0.2rem 0.3rem #e0e0e0;
+}
+`}&lt;/style&gt;
+	&lt;/&gt;;
+}</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> Menu <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'antd'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'next/router'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Link <span class="token keyword">from</span> <span class="token string">'next/link'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect<span class="token punctuation">,</span> ReactNode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'antd/dist/antd.css'</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> SubMenu <span class="token punctuation">}</span> <span class="token operator">=</span> Menu<span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">IMenu</span> <span class="token punctuation">{</span>
+	icon<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	label<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	url<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	pkey<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	children<span class="token operator">?</span><span class="token operator">:</span> IMenu<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">IProps</span> <span class="token punctuation">{</span>
+	children<span class="token operator">:</span> ReactNode<span class="token punctuation">;</span>
+	menus<span class="token operator">:</span> IMenu<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	title<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	logo<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+	leftWidth<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>	<span class="token comment">// 左边框宽度,带单位</span>
+	header<span class="token operator">:</span> ReactNode<span class="token punctuation">;</span>
+	headHeight<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Layout</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	children<span class="token punctuation">,</span>
+	menus<span class="token punctuation">,</span>
+	title<span class="token punctuation">,</span>
+	logo<span class="token punctuation">,</span>
+	leftWidth<span class="token punctuation">,</span>
+	header<span class="token punctuation">,</span>
+	headHeight
+<span class="token punctuation">}</span><span class="token operator">:</span> IProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>process<span class="token punctuation">.</span>browser<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>selectedKeys<span class="token punctuation">,</span> setselectedKeys<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">useState</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> <span class="token punctuation">[</span>openKeys<span class="token punctuation">,</span> setopenKeys<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">useState</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> name <span class="token operator">=</span> router<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[.*]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">function</span> <span class="token function">getkeys</span><span class="token punctuation">(</span>menu<span class="token operator">:</span> IMenu<span class="token punctuation">,</span> openkeys<span class="token operator">:</span> Set<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span><span class="token punctuation">,</span> selectkeys<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>menu<span class="token punctuation">.</span>children<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				menu<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+					<span class="token function">getkeys</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> openkeys<span class="token punctuation">,</span> selectkeys<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>name<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span>menu<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>menu<span class="token punctuation">.</span>pkey<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					openkeys<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>menu<span class="token punctuation">.</span>pkey<span class="token punctuation">)</span>
+				<span class="token punctuation">}</span>
+				selectkeys<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>menu<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">const</span> <span class="token punctuation">[</span>o<span class="token punctuation">,</span> s<span class="token punctuation">]</span> <span class="token operator">=</span> menus<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">[</span>o<span class="token punctuation">,</span> s<span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+			<span class="token function">getkeys</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> o<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">return</span> <span class="token punctuation">[</span>o<span class="token punctuation">,</span> s<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Set<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token keyword">as</span> <span class="token punctuation">[</span>Set<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">setopenKeys</span><span class="token punctuation">(</span><span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">setselectedKeys</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> left_width <span class="token operator">=</span> leftWidth <span class="token operator">||</span> <span class="token string">'12.25rem'</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> head_height <span class="token operator">=</span> headHeight <span class="token operator">||</span> <span class="token string">'3.75rem'</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">'layout'</span><span class="token operator">></span>
+			<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">'left'</span> <span class="token operator">></span>
+				<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">></span>
+					<span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">'logoimage'</span> src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> alt<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">/</span><span class="token operator">></span>
+					<span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">'logotitle'</span><span class="token operator">></span><span class="token punctuation">{</span>title<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+				<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+				<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">'menu'</span><span class="token operator">></span>
+					<span class="token operator">&lt;</span>Menu
+						style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> overflowY<span class="token operator">:</span> <span class="token string">'auto'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+						multiple<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span>
+						theme<span class="token operator">=</span><span class="token string">"dark"</span>
+						defaultSelectedKeys<span class="token operator">=</span><span class="token punctuation">{</span>selectedKeys<span class="token punctuation">}</span>
+						selectedKeys<span class="token operator">=</span><span class="token punctuation">{</span>selectedKeys<span class="token punctuation">}</span>
+						openKeys<span class="token operator">=</span><span class="token punctuation">{</span>openKeys<span class="token punctuation">}</span>
+						onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+							<span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token operator">...</span>rest<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">.</span>keyPath<span class="token punctuation">;</span>
+							<span class="token function">setselectedKeys</span><span class="token punctuation">(</span><span class="token punctuation">[</span>i<span class="token punctuation">.</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+							<span class="token function">setopenKeys</span><span class="token punctuation">(</span>rest<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						<span class="token punctuation">}</span><span class="token punctuation">}</span>
+						onOpenChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>keys<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+							<span class="token function">setopenKeys</span><span class="token punctuation">(</span>keys <span class="token keyword">as</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						<span class="token punctuation">}</span><span class="token punctuation">}</span>
+						mode<span class="token operator">=</span><span class="token string">"inline"</span>
+					<span class="token operator">></span>
+						<span class="token punctuation">{</span>menus<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>menu<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+							<span class="token keyword">return</span> <span class="token function">generatemenu</span><span class="token punctuation">(</span>menu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+					<span class="token operator">&lt;</span><span class="token operator">/</span>Menu<span class="token operator">></span>
+				<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+			<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"right"</span><span class="token operator">></span>
+				<span class="token operator">&lt;</span>Header height<span class="token operator">=</span><span class="token punctuation">{</span>head_height<span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">{</span>header<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>Header<span class="token operator">></span>
+				<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">'content'</span><span class="token operator">></span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.right{
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin-left: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>left_width<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+}
+.menu{
+	overflow-y:hidden;
+}
+.menu:hover{
+	overflow: auto;
+}
+.left{
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	flex: 0;
+	background: #050F2A;
+	width:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>left_width<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	height: 100%;
+}
+.layout{
+	display: flex;
+	height: 100vh;
+	flex-direction: row;
+}
+.content{
+	padding: 1rem 3rem;
+}
+.logo {
+	display: flex;
+	align-items: center;
+	padding: 0.5rem;
+	height: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>head_height<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+}
+.logoimage{
+	height: 3rem;
+}
+.logotitle{
+	color:#008cff;
+	font-size: 22px;
+	cursor: pointer;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * 根据数据创建菜单，但由于antd组件的bug不能使用函数组件
+ */</span>
+<span class="token keyword">function</span> <span class="token function">generatemenu</span><span class="token punctuation">(</span>menu<span class="token operator">:</span> IMenu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>menu<span class="token punctuation">.</span>url <span class="token operator">||</span> menu<span class="token punctuation">.</span>children<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token operator">&lt;</span>SubMenu key<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>key<span class="token punctuation">}</span> icon<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>Icon src<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>icon<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span> title<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">'menulabel'</span><span class="token operator">></span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>label<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+			<span class="token punctuation">{</span>menu<span class="token punctuation">.</span>children<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token function">generatemenu</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+			<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.menulabel{
+font-size: 1rem;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">/</span>SubMenu<span class="token operator">></span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span>Menu<span class="token punctuation">.</span>Item key<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>key<span class="token punctuation">}</span> icon<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>pkey <span class="token operator">?</span> <span class="token operator">&lt;</span>SubMenuIcon src<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>icon<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span> <span class="token operator">:</span> <span class="token operator">&lt;</span>Icon src<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>icon<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>Link href<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>url<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span>a<span class="token operator">></span><span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>pkey <span class="token operator">?</span> <span class="token string">'menulabel2'</span> <span class="token operator">:</span> <span class="token string">'menulabel'</span><span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">{</span>menu<span class="token punctuation">.</span>label<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.menulabel{
+font-size: 1rem;
+}
+.menulabel2{
+font-size: 0.9rem;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>Menu<span class="token punctuation">.</span>Item<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Icon</span><span class="token punctuation">(</span><span class="token punctuation">{</span> src <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> src<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>src<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">'icon'</span> src<span class="token operator">=</span><span class="token punctuation">{</span>src<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.icon{
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 0.5rem;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">SubMenuIcon</span><span class="token punctuation">(</span><span class="token punctuation">{</span> src <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> src<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>src<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token string">'icon'</span> src<span class="token operator">=</span><span class="token punctuation">{</span>src<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.icon{
+	width: 1.1rem;
+	height: 1.1rem;
+	margin-right: 0.5rem;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Header</span><span class="token punctuation">(</span><span class="token punctuation">{</span> children<span class="token punctuation">,</span> height <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> children<span class="token operator">:</span> ReactNode<span class="token punctuation">;</span> height<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span>Shadow<span class="token operator">></span>
+		<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">'c'</span><span class="token operator">></span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+.c{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	width: 100%;
+	height: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>height<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>Shadow<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Shadow</span><span class="token punctuation">(</span><span class="token punctuation">{</span> children <span class="token punctuation">}</span><span class="token operator">:</span> <span class="token punctuation">{</span> children<span class="token operator">:</span> ReactNode<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+		<span class="token operator">&lt;</span>style jsx<span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+div{
+	box-shadow: 0.2rem 0.2rem 0.3rem #e0e0e0;
+}
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div><h2>参数</h2><ul><li>children 右侧主体页面内容</li><li>menus 菜单数据,菜单页面地址,如果是层级结构的菜单,需要子页面包含父页面地址,即如父页面为/home,子页面必须为 /home/xxx 之类的路径,而其它分类下的页面不要放置在 /home 下.</li><li>title 左上角显示的文本内容</li><li>logo 左上角logo图片</li><li>header 右侧上部内容</li><li>leftWidth 左侧面板宽度</li><li>headHeight 头部高度</li></ul><h2>使用</h2><p>想要达到切换页面不刷新,需要将该组件的调用放置在<code>src/pages/_app.tsx</code>中.一个典型的使用示例如下:</p><div class="jsx-2207282366 row "><div class="jsx-158700623 col "><button type="button" class="jsx-1464210458 btn "><div class="text">Reset</div></button><button type="button" class="jsx-1464210458 btn "><div class="text">Copy</div></button></div></div><div class="jsx-86683480 row "><div class="jsx-180329529 col "><div class="jsx-1629357098"><div style="position:relative;text-align:left;box-sizing:border-box;padding:0;overflow:hidden;font-family:&quot;Fira code&quot;, &quot;Fira Mono&quot;, monospace;font-size:12px"><textarea style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px" class="npm__react-simple-code-editor__textarea" autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" data-gramm="false">import { AppContext, AppInitialProps, NextWebVitalsMetric } from &#x27;next/app&#x27;;
+import anylogger from &#x27;anylogger&#x27;;
+import &#x27;../../styles/globals.css&#x27;;
+import &#x27;../../styles/vars.css&#x27;;
+import MyLayout from &#x27;./mylayout&#x27;;
+
+const logger = anylogger(&#x27;app&#x27;);
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+	logger.info(metric);
+}
+
+function App({ Component, pageProps, router }: AppInitialProps &amp; AppContext) {
+	const ispublic = /^/(public001|public002)/.test(router.pathname);
+	if (ispublic) {
+		return &lt;Component {...pageProps} /&gt;;
+	}
+	return &lt;MyLayout&gt;
+		&lt;Component {...pageProps} /&gt;
+	&lt;/MyLayout&gt;;
+}
+
+export default App;</textarea><pre aria-hidden="true" style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:inherit;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:keep-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><span class="token keyword">import</span> <span class="token punctuation">{</span> AppContext<span class="token punctuation">,</span> AppInitialProps<span class="token punctuation">,</span> NextWebVitalsMetric <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'next/app'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> anylogger <span class="token keyword">from</span> <span class="token string">'anylogger'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'../../styles/globals.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'../../styles/vars.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> MyLayout <span class="token keyword">from</span> <span class="token string">'./mylayout'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token function">anylogger</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">reportWebVitals</span><span class="token punctuation">(</span>metric<span class="token operator">:</span> NextWebVitalsMetric<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>metric<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">{</span> Component<span class="token punctuation">,</span> pageProps<span class="token punctuation">,</span> router <span class="token punctuation">}</span><span class="token operator">:</span> AppInitialProps <span class="token operator">&amp;</span> AppContext<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> ispublic <span class="token operator">=</span> <span class="token operator">/</span><span class="token operator">^</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(public001|public002)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>ispublic<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token operator">&lt;</span>Component <span class="token punctuation">{</span><span class="token operator">...</span>pageProps<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token operator">&lt;</span>MyLayout<span class="token operator">></span>
+		<span class="token operator">&lt;</span>Component <span class="token punctuation">{</span><span class="token operator">...</span>pageProps<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+	<span class="token operator">&lt;</span><span class="token operator">/</span>MyLayout<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span><br /></pre><style type="text/css">
+/**
+ * Reset the text fill color so that placeholder is visible
+ */
+.npm__react-simple-code-editor__textarea:empty {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/**
+ * Hack to apply on some CSS on IE10 and IE11
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /**
+    * IE doesn't support '-webkit-text-fill-color'
+    * So we use 'color: transparent' to make the text transparent on IE
+    * Unlike other browsers, it doesn't affect caret color in IE
+    */
+  .npm__react-simple-code-editor__textarea {
+    color: transparent !important;
+  }
+
+  .npm__react-simple-code-editor__textarea::selection {
+    background-color: #accef7 !important;
+    color: transparent !important;
+  }
+}
+</style></div></div></div></div></div><div class="jsx-1988653958 outer"><footer class="jsx-1988653958 inner"><a href="https://github.com/01factory/01factory.github.io/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Github</a><br class="jsx-1988653958"/><a href="https://gitee.com/dfactory01/dfactory01/edit/main/src/pages/main.md" target="_blank" rel="noreferrer noopener" class="jsx-1988653958"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" class="jsx-1988653958 s001"><g class="jsx-1988653958"><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" class="jsx-1988653958"></path></g></svg>Edit this page on Gitee</a></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/codes/2021/07/22/1024","query":{},"buildId":"Xzo6kYcsOi3BexPEf7a5Z","runtimeConfig":{},"nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-5caa60317e4d0196bd5f.js"></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.f8bd46fc02868c500bda.js" async=""></script><script src="/_next/static/chunks/efe5b9f0e475b9630f05da880d915321f7ac39a1.65571f932be9853a08b3.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.7f522d4c44240e733215.js" async=""></script><script src="/_next/static/chunks/main-99016dfb960f134c798a.js" async=""></script><script src="/_next/static/chunks/edb17fefdb916118799d68ee0d51c15dd1b15581.9b340f9d21cfc83997ce.js" async=""></script><script src="/_next/static/chunks/7d6be8e52b15a1c2ee8b372d368ff9b522366852.73d35c9d2664c8d142ad.js" async=""></script><script src="/_next/static/chunks/pages/_app-7467674471030778f3eb.js" async=""></script><script src="/_next/static/chunks/e772bb883101be51abc47e4453bfd7767a8cef6d.134529ea440b13f2ddd4.js" async=""></script><script src="/_next/static/chunks/pages/codes/2021/07/22/1024-5484f7d2d23a546ca656.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_buildManifest.js" async=""></script><script src="/_next/static/Xzo6kYcsOi3BexPEf7a5Z/_ssgManifest.js" async=""></script></body></html>
