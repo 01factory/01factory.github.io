@@ -5,6 +5,7 @@ services:
     stdin_open: true
     tty: true
     working_dir: /01factory
+    # command: /opt/yarn-v1.22.5/bin/yarn start
     image: taoqf/node:latest
     volumes:
       - ./data/01factory:/01factory

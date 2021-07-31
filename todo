@@ -1,0 +1,4 @@
+as 'abc' as string
+as const;
+
+command: /opt/yarn-v1.22.5/bin/yarn start
